@@ -11,7 +11,7 @@ public class Koneksi {
     public static Connection getConnection() {
         if (conn == null) {
             try {
-                String url = "jdbc:mysql://localhost/db_penjualan";
+                String url = "jdbc:mysql://localhost/umkmdb";
                 String user = "root";
                 String pass = "";
                 DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
