@@ -243,7 +243,7 @@ public class MenuUtama extends javax.swing.JFrame {
             .addGap(0, 35, Short.MAX_VALUE)
         );
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/fluex404/penjualan/maven/Image/icons8_todo_list_30px.png"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/fluex404/penjualan/maven/Image/Inventory_30px.png"))); // NOI18N
 
         btn_inventory.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btn_inventory.setText("Inventory");
@@ -294,7 +294,7 @@ public class MenuUtama extends javax.swing.JFrame {
             .addGap(0, 35, Short.MAX_VALUE)
         );
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/fluex404/penjualan/maven/Image/icons8_buy_30px.png"))); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/fluex404/penjualan/maven/Image/Buy_30px.png"))); // NOI18N
 
         btn_pembelian.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btn_pembelian.setText("Pembelian");
@@ -313,7 +313,7 @@ public class MenuUtama extends javax.swing.JFrame {
                 .addGroup(pn_btnPembelianLayout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(pn_line6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(160, Short.MAX_VALUE)))
+                    .addContainerGap(204, Short.MAX_VALUE)))
         );
         pn_btnPembelianLayout.setVerticalGroup(
             pn_btnPembelianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -345,7 +345,7 @@ public class MenuUtama extends javax.swing.JFrame {
             .addGap(0, 35, Short.MAX_VALUE)
         );
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/fluex404/penjualan/maven/Image/icons8_sell_30px.png"))); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/fluex404/penjualan/maven/Image/Sell_30px.png"))); // NOI18N
 
         btn_penjualan.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btn_penjualan.setText("Penjualan");
@@ -364,7 +364,7 @@ public class MenuUtama extends javax.swing.JFrame {
                 .addGroup(pn_btnPenjualanLayout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(pn_line7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(160, Short.MAX_VALUE)))
+                    .addContainerGap(204, Short.MAX_VALUE)))
         );
         pn_btnPenjualanLayout.setVerticalGroup(
             pn_btnPenjualanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -400,7 +400,7 @@ public class MenuUtama extends javax.swing.JFrame {
             .addGap(0, 35, Short.MAX_VALUE)
         );
 
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/fluex404/penjualan/maven/Image/icons8_increase_30px.png"))); // NOI18N
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/fluex404/penjualan/maven/Image/Performance_30px.png"))); // NOI18N
 
         btn_performance.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btn_performance.setText("Performance");
@@ -413,13 +413,13 @@ public class MenuUtama extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addComponent(jLabel12)
                 .addGap(18, 18, 18)
-                .addComponent(btn_performance, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                .addComponent(btn_performance, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(pn_btnPerformanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pn_btnPerformanceLayout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(pn_line8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(160, Short.MAX_VALUE)))
+                    .addContainerGap(204, Short.MAX_VALUE)))
         );
         pn_btnPerformanceLayout.setVerticalGroup(
             pn_btnPerformanceLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -447,6 +447,7 @@ public class MenuUtama extends javax.swing.JFrame {
             .addGroup(pn_kiriLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(pn_kiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pn_btnPerformance, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pn_btnPelanggan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pn_btnSupplier, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pn_btnBarang, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -456,18 +457,14 @@ public class MenuUtama extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(pn_kiriLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
                         .addGroup(pn_kiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pn_kiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(pn_btnPembelian, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(pn_btnPenjualan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(pn_btnPerformance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(pn_kiriLayout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addGroup(pn_kiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel13)
-                                    .addComponent(jLabel5))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel5))
+                        .addGap(0, 111, Short.MAX_VALUE))
+                    .addComponent(pn_btnPembelian, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pn_btnPenjualan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         pn_kiriLayout.setVerticalGroup(
