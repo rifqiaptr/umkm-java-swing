@@ -627,6 +627,7 @@ public class MenuUtama extends javax.swing.JFrame {
                 pn_line.setBackground(new Color(0, 102, 153));
                 
                 pn_utama.removeAll();
+                pn_utama.add(new DataPelanggan());
                 pn_utama.repaint();
                 pn_utama.revalidate();
             }
