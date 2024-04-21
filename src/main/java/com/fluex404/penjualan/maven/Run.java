@@ -6,6 +6,7 @@ package com.fluex404.penjualan.maven;
 
 import com.fluex404.penjualan.maven.Config.Koneksi;
 import com.fluex404.penjualan.maven.Main.FormLogin;
+import com.fluex404.penjualan.maven.Main.MenuUtama;
 import java.sql.Connection;
 
 /**
@@ -16,6 +17,6 @@ public class Run {
     public static void main(String[] args) {
         System.out.println("Hallo World!!!");
         
-        new FormLogin().show();
+        new MenuUtama().show();
     }
 }

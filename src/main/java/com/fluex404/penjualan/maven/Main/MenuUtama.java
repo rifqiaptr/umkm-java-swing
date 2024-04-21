@@ -69,7 +69,7 @@ public class MenuUtama extends javax.swing.JFrame {
         jLabel1.setText("UMKM");
 
         jLabel2.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/fluex404/penjualan/maven/Image/Shop_50px.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Shop_50px.png"))); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(153, 153, 153));
@@ -90,7 +90,7 @@ public class MenuUtama extends javax.swing.JFrame {
             .addGap(0, 35, Short.MAX_VALUE)
         );
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/fluex404/penjualan/maven/Image/Customer_30px.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Customer_30px.png"))); // NOI18N
 
         btn_pelanggan.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btn_pelanggan.setText("Data Pelanggan");
@@ -141,7 +141,7 @@ public class MenuUtama extends javax.swing.JFrame {
             .addGap(0, 35, Short.MAX_VALUE)
         );
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/fluex404/penjualan/maven/Image/Supplier_30px.png"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Supplier_30px.png"))); // NOI18N
 
         btn_supplier.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btn_supplier.setText("Data Supplier");
@@ -192,7 +192,7 @@ public class MenuUtama extends javax.swing.JFrame {
             .addGap(0, 35, Short.MAX_VALUE)
         );
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/fluex404/penjualan/maven/Image/Product_30px.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Product_30px.png"))); // NOI18N
 
         btn_barang.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btn_barang.setText("Data Barang");
@@ -243,7 +243,7 @@ public class MenuUtama extends javax.swing.JFrame {
             .addGap(0, 35, Short.MAX_VALUE)
         );
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/fluex404/penjualan/maven/Image/Inventory_30px.png"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Inventory_30px.png"))); // NOI18N
 
         btn_inventory.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btn_inventory.setText("Inventory");
@@ -294,7 +294,7 @@ public class MenuUtama extends javax.swing.JFrame {
             .addGap(0, 35, Short.MAX_VALUE)
         );
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/fluex404/penjualan/maven/Image/Buy_30px.png"))); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Buy_30px.png"))); // NOI18N
 
         btn_pembelian.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btn_pembelian.setText("Pembelian");
@@ -345,7 +345,7 @@ public class MenuUtama extends javax.swing.JFrame {
             .addGap(0, 35, Short.MAX_VALUE)
         );
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/fluex404/penjualan/maven/Image/Sell_30px.png"))); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Sell_30px.png"))); // NOI18N
 
         btn_penjualan.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btn_penjualan.setText("Penjualan");
@@ -400,7 +400,7 @@ public class MenuUtama extends javax.swing.JFrame {
             .addGap(0, 35, Short.MAX_VALUE)
         );
 
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/fluex404/penjualan/maven/Image/Performance_30px.png"))); // NOI18N
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Performance_30px.png"))); // NOI18N
 
         btn_performance.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btn_performance.setText("Performance");

@@ -1,4 +1,4 @@
-package Pallete;
+package com.fluex404.penjualan.maven.Pallete;
 
 import java.awt.Color;
 import java.awt.GradientPaint;

@@ -120,7 +120,7 @@
               <Font name="SansSerif" size="18" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/com/fluex404/penjualan/maven/Image/Shop_50px.png"/>
+              <Image iconType="3" name="/image/Shop_50px.png"/>
             </Property>
           </Properties>
         </Component>
@@ -205,7 +205,7 @@
             <Component class="javax.swing.JLabel" name="jLabel4">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/com/fluex404/penjualan/maven/Image/Customer_30px.png"/>
+                  <Image iconType="3" name="/image/Customer_30px.png"/>
                 </Property>
               </Properties>
             </Component>
@@ -289,7 +289,7 @@
             <Component class="javax.swing.JLabel" name="jLabel6">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/com/fluex404/penjualan/maven/Image/Supplier_30px.png"/>
+                  <Image iconType="3" name="/image/Supplier_30px.png"/>
                 </Property>
               </Properties>
             </Component>
@@ -373,7 +373,7 @@
             <Component class="javax.swing.JLabel" name="jLabel7">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/com/fluex404/penjualan/maven/Image/Product_30px.png"/>
+                  <Image iconType="3" name="/image/Product_30px.png"/>
                 </Property>
               </Properties>
             </Component>
@@ -457,7 +457,7 @@
             <Component class="javax.swing.JLabel" name="jLabel8">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/com/fluex404/penjualan/maven/Image/Inventory_30px.png"/>
+                  <Image iconType="3" name="/image/Inventory_30px.png"/>
                 </Property>
               </Properties>
             </Component>
@@ -541,7 +541,7 @@
             <Component class="javax.swing.JLabel" name="jLabel9">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/com/fluex404/penjualan/maven/Image/Buy_30px.png"/>
+                  <Image iconType="3" name="/image/Buy_30px.png"/>
                 </Property>
               </Properties>
             </Component>
@@ -625,7 +625,7 @@
             <Component class="javax.swing.JLabel" name="jLabel10">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/com/fluex404/penjualan/maven/Image/Sell_30px.png"/>
+                  <Image iconType="3" name="/image/Sell_30px.png"/>
                 </Property>
               </Properties>
             </Component>
@@ -720,7 +720,7 @@
             <Component class="javax.swing.JLabel" name="jLabel12">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/com/fluex404/penjualan/maven/Image/Performance_30px.png"/>
+                  <Image iconType="3" name="/image/Performance_30px.png"/>
                 </Property>
               </Properties>
             </Component>
