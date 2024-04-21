@@ -77,21 +77,11 @@ public class DataBarang extends javax.swing.JPanel {
                 btnSaveMouseClicked(evt);
             }
         });
-        btnSave.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaveActionPerformed(evt);
-            }
-        });
 
         btnEdit.setBackground(new java.awt.Color(102, 102, 102));
         btnEdit.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         btnEdit.setForeground(new java.awt.Color(255, 255, 255));
         btnEdit.setText("EDIT");
-        btnEdit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditActionPerformed(evt);
-            }
-        });
 
         txtKode.setFont(new java.awt.Font("SansSerif", 2, 14)); // NOI18N
 
@@ -107,21 +97,11 @@ public class DataBarang extends javax.swing.JPanel {
         btnDelete.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         btnDelete.setForeground(new java.awt.Color(255, 255, 255));
         btnDelete.setText("DELETE");
-        btnDelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteActionPerformed(evt);
-            }
-        });
 
         btnExport.setBackground(new java.awt.Color(102, 102, 102));
         btnExport.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         btnExport.setForeground(new java.awt.Color(255, 255, 255));
         btnExport.setText("EXPORT");
-        btnExport.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExportActionPerformed(evt);
-            }
-        });
 
         tblData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -201,25 +181,33 @@ public class DataBarang extends javax.swing.JPanel {
         add(panelMain, "card2");
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
-        showPanel();
-        loadData();
-    }//GEN-LAST:event_btnEditActionPerformed
-
-    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnDeleteActionPerformed
-
-    private void btnExportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnExportActionPerformed
-
-    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSaveActionPerformed
-
     private void btnSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSaveMouseClicked
-        // TODO add your handling code here:
+        try {
+            String kodeBarang = txtKode.getText();
+            String namaBarang = txtNama.getText();
+            String harga_jual = txtHarga.getText();
+            String kategori = txtKategori.getText();
+            String satuan_barang = txtSatuan.getText();
+            
+            // insert ke database lewat sql
+            String sql = "insert into barang (kode, nama, harga_jual, kategori, satuan_barang)\n" +
+                        "values(?,?,?,?,?);";
+            
+            Connection con = Koneksi.getConnection();
+            PreparedStatement stmt=con.prepareStatement(sql);
+            stmt.setString(1,kodeBarang);
+            stmt.setString(2,namaBarang);
+            stmt.setString(3,harga_jual);
+            stmt.setString(4,kategori);
+            stmt.setString(5,satuan_barang);
+            stmt.executeUpdate(); 
+            
+            // get list data dari database
+            loadData();
+            
+            // tampilkan ke table
+        } catch (SQLException ex) {
+        }
     }//GEN-LAST:event_btnSaveMouseClicked
 
 
