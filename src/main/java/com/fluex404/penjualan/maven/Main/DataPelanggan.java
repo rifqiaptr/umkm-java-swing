@@ -1,13 +1,185 @@
 package com.fluex404.penjualan.maven.Main;;
 
+import com.fluex404.penjualan.maven.Config.Koneksi;
+import com.fluex404.penjualan.maven.View.MenuAnggota;
+import com.fluex404.penjualan.maven.View.MenuKategori;
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import com.fluex404.penjualan.maven.View.MenuAnggota;
+import com.fluex404.penjualan.maven.View.MenuKategori;
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import com.fluex404.penjualan.maven.View.MenuAnggota;
+import com.fluex404.penjualan.maven.View.MenuKategori;
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import com.fluex404.penjualan.maven.View.MenuAnggota;
+import com.fluex404.penjualan.maven.View.MenuKategori;
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.sql.Connection;
+import com.fluex404.penjualan.maven.Config.Koneksi;
+import com.fluex404.penjualan.maven.View.MenuAnggota;
+import com.fluex404.penjualan.maven.View.MenuKategori;
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import com.fluex404.penjualan.maven.View.MenuAnggota;
+import com.fluex404.penjualan.maven.View.MenuKategori;
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import com.fluex404.penjualan.maven.View.MenuAnggota;
+import com.fluex404.penjualan.maven.View.MenuKategori;
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import com.fluex404.penjualan.maven.View.MenuAnggota;
+import com.fluex404.penjualan.maven.View.MenuKategori;
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.sql.PreparedStatement;
+import com.fluex404.penjualan.maven.Config.Koneksi;
+import com.fluex404.penjualan.maven.View.MenuAnggota;
+import com.fluex404.penjualan.maven.View.MenuKategori;
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import com.fluex404.penjualan.maven.View.MenuAnggota;
+import com.fluex404.penjualan.maven.View.MenuKategori;
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import com.fluex404.penjualan.maven.View.MenuAnggota;
+import com.fluex404.penjualan.maven.View.MenuKategori;
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import com.fluex404.penjualan.maven.View.MenuAnggota;
+import com.fluex404.penjualan.maven.View.MenuKategori;
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.sql.Connection;
+import com.fluex404.penjualan.maven.Config.Koneksi;
+import com.fluex404.penjualan.maven.View.MenuAnggota;
+import com.fluex404.penjualan.maven.View.MenuKategori;
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import com.fluex404.penjualan.maven.View.MenuAnggota;
+import com.fluex404.penjualan.maven.View.MenuKategori;
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import com.fluex404.penjualan.maven.View.MenuAnggota;
+import com.fluex404.penjualan.maven.View.MenuKategori;
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import com.fluex404.penjualan.maven.View.MenuAnggota;
+import com.fluex404.penjualan.maven.View.MenuKategori;
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import com.fluex404.penjualan.maven.Config.Koneksi;
+import com.fluex404.penjualan.maven.View.MenuAnggota;
+import com.fluex404.penjualan.maven.View.MenuKategori;
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import com.fluex404.penjualan.maven.View.MenuAnggota;
+import com.fluex404.penjualan.maven.View.MenuKategori;
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import com.fluex404.penjualan.maven.View.MenuAnggota;
+import com.fluex404.penjualan.maven.View.MenuKategori;
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import com.fluex404.penjualan.maven.View.MenuAnggota;
+import com.fluex404.penjualan.maven.View.MenuKategori;
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.sql.Connection;
+import com.fluex404.penjualan.maven.Config.Koneksi;
+import com.fluex404.penjualan.maven.View.MenuAnggota;
+import com.fluex404.penjualan.maven.View.MenuKategori;
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import com.fluex404.penjualan.maven.View.MenuAnggota;
+import com.fluex404.penjualan.maven.View.MenuKategori;
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import com.fluex404.penjualan.maven.View.MenuAnggota;
+import com.fluex404.penjualan.maven.View.MenuKategori;
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import com.fluex404.penjualan.maven.View.MenuAnggota;
+import com.fluex404.penjualan.maven.View.MenuKategori;
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.sql.PreparedStatement;
+import com.fluex404.penjualan.maven.Config.Koneksi;
+import com.fluex404.penjualan.maven.View.MenuAnggota;
+import com.fluex404.penjualan.maven.View.MenuKategori;
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import com.fluex404.penjualan.maven.View.MenuAnggota;
+import com.fluex404.penjualan.maven.View.MenuKategori;
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import com.fluex404.penjualan.maven.View.MenuAnggota;
+import com.fluex404.penjualan.maven.View.MenuKategori;
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import com.fluex404.penjualan.maven.View.MenuAnggota;
+import com.fluex404.penjualan.maven.View.MenuKategori;
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.sql.Connection;
+import com.fluex404.penjualan.maven.Config.Koneksi;
+import com.fluex404.penjualan.maven.View.MenuAnggota;
+import com.fluex404.penjualan.maven.View.MenuKategori;
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import com.fluex404.penjualan.maven.View.MenuAnggota;
+import com.fluex404.penjualan.maven.View.MenuKategori;
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import com.fluex404.penjualan.maven.View.MenuAnggota;
+import com.fluex404.penjualan.maven.View.MenuKategori;
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import com.fluex404.penjualan.maven.View.MenuAnggota;
 import com.fluex404.penjualan.maven.View.MenuKategori;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class MenuUtama extends javax.swing.JFrame {
-    public MenuUtama() {
+public class DataPelanggan extends javax.swing.JFrame {
+    public DataPelanggan() {
         initComponents();
         actionButton();
     }
@@ -53,6 +225,20 @@ public class MenuUtama extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         pn_kanan = new javax.swing.JPanel();
         pn_dasar = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        FieldKode = new javax.swing.JTextField();
+        FieldNama = new javax.swing.JTextField();
+        FieldAlamat = new javax.swing.JTextField();
+        FieldNmrTelp = new javax.swing.JTextField();
+        FieldEmail = new javax.swing.JTextField();
+        btnSave = new javax.swing.JButton();
+        btnEdit = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
+        btnExp = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TabelPelanggan = new javax.swing.JTable();
+        jLabel14 = new javax.swing.JLabel();
 
         pn_utama.setBackground(new java.awt.Color(255, 255, 255));
         pn_utama.setLayout(new java.awt.BorderLayout());
@@ -507,15 +693,188 @@ public class MenuUtama extends javax.swing.JFrame {
 
         pn_dasar.setBackground(new java.awt.Color(240, 240, 240));
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel11.setFont(new java.awt.Font("Lucida Fax", 1, 16)); // NOI18N
+        jLabel11.setText("DATA PELANGGAN");
+
+        FieldKode.setFont(new java.awt.Font("Sitka Text", 0, 12)); // NOI18N
+        FieldKode.setText("Kode Pelanggan");
+        FieldKode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FieldKodeActionPerformed(evt);
+            }
+        });
+
+        FieldNama.setFont(new java.awt.Font("Sitka Text", 0, 12)); // NOI18N
+        FieldNama.setText("Nama Pelanggan");
+        FieldNama.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FieldNamaActionPerformed(evt);
+            }
+        });
+
+        FieldAlamat.setFont(new java.awt.Font("Sitka Text", 0, 12)); // NOI18N
+        FieldAlamat.setText("Alamat Pelanggan");
+        FieldAlamat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FieldAlamatActionPerformed(evt);
+            }
+        });
+
+        FieldNmrTelp.setFont(new java.awt.Font("Sitka Text", 0, 12)); // NOI18N
+        FieldNmrTelp.setText("Nomor Telepon");
+        FieldNmrTelp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FieldNmrTelpActionPerformed(evt);
+            }
+        });
+
+        FieldEmail.setFont(new java.awt.Font("Sitka Text", 0, 12)); // NOI18N
+        FieldEmail.setText("E-mail");
+        FieldEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FieldEmailActionPerformed(evt);
+            }
+        });
+
+        btnSave.setBackground(new java.awt.Color(153, 153, 153));
+        btnSave.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        btnSave.setForeground(new java.awt.Color(255, 255, 255));
+        btnSave.setText("SAVE");
+        btnSave.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSaveMouseClicked(evt);
+            }
+        });
+
+        btnEdit.setBackground(new java.awt.Color(153, 153, 153));
+        btnEdit.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        btnEdit.setForeground(new java.awt.Color(255, 255, 255));
+        btnEdit.setText("EDIT");
+
+        btnDelete.setBackground(new java.awt.Color(153, 153, 153));
+        btnDelete.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
+        btnDelete.setText("DELETE");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
+
+        btnExp.setBackground(new java.awt.Color(153, 153, 153));
+        btnExp.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        btnExp.setForeground(new java.awt.Color(255, 255, 255));
+        btnExp.setText("EXPORT");
+
+        TabelPelanggan.setBorder(javax.swing.BorderFactory.createCompoundBorder(null, javax.swing.BorderFactory.createCompoundBorder()));
+        TabelPelanggan.setFont(new java.awt.Font("Tw Cen MT", 0, 12)); // NOI18N
+        TabelPelanggan.setForeground(new java.awt.Color(153, 255, 153));
+        TabelPelanggan.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Kode Pelanggan", "Nama Pelanggan", "Alamat Pelanggan", "Nomor Telepon", "E-mail"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(TabelPelanggan);
+
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Customer_30px.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(52, 52, 52)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(FieldKode)
+                                        .addComponent(FieldNama)
+                                        .addComponent(FieldAlamat, javax.swing.GroupLayout.DEFAULT_SIZE, 260, Short.MAX_VALUE)
+                                        .addComponent(FieldNmrTelp)
+                                        .addComponent(FieldEmail))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(btnSave)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnEdit)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(btnDelete))))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(51, 51, 51)
+                                .addComponent(jLabel14)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel11)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnExp))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 840, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(273, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(jLabel11))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel14)))
+                .addGap(18, 18, 18)
+                .addComponent(FieldKode, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(FieldNama, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(FieldAlamat, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(FieldNmrTelp, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(FieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSave)
+                    .addComponent(btnEdit)
+                    .addComponent(btnDelete)
+                    .addComponent(btnExp))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+                .addGap(20, 20, 20))
+        );
+
         javax.swing.GroupLayout pn_dasarLayout = new javax.swing.GroupLayout(pn_dasar);
         pn_dasar.setLayout(pn_dasarLayout);
         pn_dasarLayout.setHorizontalGroup(
             pn_dasarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1135, Short.MAX_VALUE)
+            .addGroup(pn_dasarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pn_dasarLayout.setVerticalGroup(
             pn_dasarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 528, Short.MAX_VALUE)
+            .addGroup(pn_dasarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pn_kanan.add(pn_dasar, java.awt.BorderLayout.CENTER);
@@ -527,8 +886,64 @@ public class MenuUtama extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        setExtendedState(MenuUtama.MAXIMIZED_BOTH);
+        setExtendedState(DataPelanggan.MAXIMIZED_BOTH);
     }//GEN-LAST:event_formWindowOpened
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void FieldEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FieldEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FieldEmailActionPerformed
+
+    private void FieldNmrTelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FieldNmrTelpActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FieldNmrTelpActionPerformed
+
+    private void FieldAlamatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FieldAlamatActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FieldAlamatActionPerformed
+
+    private void FieldNamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FieldNamaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FieldNamaActionPerformed
+
+    private void FieldKodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FieldKodeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FieldKodeActionPerformed
+
+    private void btnSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSaveMouseClicked
+        try {
+            // TODO add your handling code here:
+            
+            // ambil data dari text field
+            String kode = FieldKode.getText();
+            String nama = FieldNama.getText();
+            String alamat = FieldAlamat.getText();
+            String nomor_telp = FieldNmrTelp.getText();
+            String email = FieldEmail.getText();
+            
+            // insert ke database lewat sql
+            String sql = "insert into pelanggan(kode, nama, alamat, nomor_telp, email)\n" +
+                    "values(?, ?, ?, ?,?);";
+            
+            Connection con = Koneksi.getConnection();
+            PreparedStatement stmt=con.prepareStatement(sql);
+            stmt.setString(1,kode);
+            stmt.setString(2,nama);
+            stmt.setString(3,alamat);
+            stmt.setString(4,nomor_telp);
+            stmt.setString(5,email);
+            
+            // get list data dari database
+            
+            // tampilkan ke table
+        } catch (SQLException ex) {
+            Logger.getLogger(DataPelanggan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_btnSaveMouseClicked
 
     /**
      * @param args the command line arguments
@@ -547,26 +962,38 @@ public class MenuUtama extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MenuUtama.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DataPelanggan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MenuUtama.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DataPelanggan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MenuUtama.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DataPelanggan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MenuUtama.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DataPelanggan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MenuUtama().setVisible(true);
+                new DataPelanggan().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField FieldAlamat;
+    private javax.swing.JTextField FieldEmail;
+    private javax.swing.JTextField FieldKode;
+    private javax.swing.JTextField FieldNama;
+    private javax.swing.JTextField FieldNmrTelp;
+    private javax.swing.JTable TabelPelanggan;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnEdit;
+    private javax.swing.JButton btnExp;
+    private javax.swing.JButton btnSave;
     private javax.swing.JLabel btn_barang;
     private javax.swing.JLabel btn_inventory;
     private javax.swing.JLabel btn_pelanggan;
@@ -576,8 +1003,10 @@ public class MenuUtama extends javax.swing.JFrame {
     private javax.swing.JLabel btn_supplier;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -586,6 +1015,8 @@ public class MenuUtama extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel pn_btnBarang;
     private javax.swing.JPanel pn_btnKategori;
     private javax.swing.JPanel pn_btnPelanggan;
