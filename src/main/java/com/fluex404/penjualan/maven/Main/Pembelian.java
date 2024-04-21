@@ -19,20 +19,19 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-public class DataBarang extends javax.swing.JPanel {
+public class Pembelian extends javax.swing.JPanel {
     private final Connection conn;
-    public DataBarang() {
+    public Pembelian() {
         initComponents();
         
         conn = Koneksi.getConnection();
         setTableModel();
         loadData();
         
-        placeHolder(txtKode, "Kode Barang");
-        placeHolder(txtNama, "Nama Barang");
-        placeHolder(txtHarga, "Harga Jual");
-        placeHolder(txtKategori, "Kategori Barang");
-        placeHolder(txtSatuan, "Satuan Barang");
+        placeHolder(txtNomor, "Nomor Transaksi");
+        placeHolder(txtTanggal, "Tanggal Transaksi");
+        placeHolder(txtNama, "Nama Supplier");
+        placeHolder(txtTelepon, "Nomor Telepon");
     }
 
     @SuppressWarnings("unchecked")
@@ -43,17 +42,16 @@ public class DataBarang extends javax.swing.JPanel {
         panelAdd = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        btnSave = new javax.swing.JButton();
+        btnAdd = new javax.swing.JButton();
         btnEdit = new javax.swing.JButton();
-        txtKode = new javax.swing.JTextField();
+        txtNomor = new javax.swing.JTextField();
+        txtTanggal = new javax.swing.JTextField();
         txtNama = new javax.swing.JTextField();
-        txtHarga = new javax.swing.JTextField();
-        txtKategori = new javax.swing.JTextField();
-        txtSatuan = new javax.swing.JTextField();
+        txtTelepon = new javax.swing.JTextField();
         btnDelete = new javax.swing.JButton();
         btnExport = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblData = new javax.swing.JTable();
+        txtTabel = new javax.swing.JTable();
 
         setLayout(new java.awt.CardLayout());
 
@@ -63,23 +61,18 @@ public class DataBarang extends javax.swing.JPanel {
         panelAdd.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel6.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jLabel6.setText("DATA BARANG");
+        jLabel6.setText("PEMBELIAN");
 
         jLabel10.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Product_30px.png"))); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Buy_30px.png"))); // NOI18N
 
-        btnSave.setBackground(new java.awt.Color(102, 102, 102));
-        btnSave.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        btnSave.setForeground(new java.awt.Color(255, 255, 255));
-        btnSave.setText("SAVE");
-        btnSave.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnSaveMouseClicked(evt);
-            }
-        });
-        btnSave.addActionListener(new java.awt.event.ActionListener() {
+        btnAdd.setBackground(new java.awt.Color(102, 102, 102));
+        btnAdd.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        btnAdd.setForeground(new java.awt.Color(255, 255, 255));
+        btnAdd.setText("ADD");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaveActionPerformed(evt);
+                btnAddActionPerformed(evt);
             }
         });
 
@@ -93,15 +86,23 @@ public class DataBarang extends javax.swing.JPanel {
             }
         });
 
-        txtKode.setFont(new java.awt.Font("SansSerif", 2, 14)); // NOI18N
+        txtNomor.setFont(new java.awt.Font("SansSerif", 2, 14)); // NOI18N
+        txtNomor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomorActionPerformed(evt);
+            }
+        });
+
+        txtTanggal.setFont(new java.awt.Font("SansSerif", 2, 14)); // NOI18N
 
         txtNama.setFont(new java.awt.Font("SansSerif", 2, 14)); // NOI18N
+        txtNama.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNamaActionPerformed(evt);
+            }
+        });
 
-        txtHarga.setFont(new java.awt.Font("SansSerif", 2, 14)); // NOI18N
-
-        txtKategori.setFont(new java.awt.Font("SansSerif", 2, 14)); // NOI18N
-
-        txtSatuan.setFont(new java.awt.Font("SansSerif", 2, 14)); // NOI18N
+        txtTelepon.setFont(new java.awt.Font("SansSerif", 2, 14)); // NOI18N
 
         btnDelete.setBackground(new java.awt.Color(102, 102, 102));
         btnDelete.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -123,7 +124,7 @@ public class DataBarang extends javax.swing.JPanel {
             }
         });
 
-        tblData.setModel(new javax.swing.table.DefaultTableModel(
+        txtTabel.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -134,8 +135,8 @@ public class DataBarang extends javax.swing.JPanel {
 
             }
         ));
-        tblData.setRowHeight(30);
-        jScrollPane1.setViewportView(tblData);
+        txtTabel.setRowHeight(30);
+        jScrollPane1.setViewportView(txtTabel);
 
         javax.swing.GroupLayout panelAddLayout = new javax.swing.GroupLayout(panelAdd);
         panelAdd.setLayout(panelAddLayout);
@@ -144,7 +145,7 @@ public class DataBarang extends javax.swing.JPanel {
             .addGroup(panelAddLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(panelAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 971, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 996, Short.MAX_VALUE)
                     .addGroup(panelAddLayout.createSequentialGroup()
                         .addGroup(panelAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelAddLayout.createSequentialGroup()
@@ -152,20 +153,19 @@ public class DataBarang extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel6))
                             .addGroup(panelAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(txtHarga, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(txtNama, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtKode, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtKategori, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-                                .addComponent(txtSatuan, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE))
+                                .addComponent(txtTanggal, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtNomor, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtTelepon, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE))
                             .addGroup(panelAddLayout.createSequentialGroup()
-                                .addComponent(btnSave)
+                                .addComponent(btnAdd)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnEdit)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnDelete)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnExport)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 678, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelAddLayout.setVerticalGroup(
@@ -176,18 +176,16 @@ public class DataBarang extends javax.swing.JPanel {
                     .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(txtKode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtNomor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(txtTanggal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(txtNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(txtHarga, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txtKategori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txtSatuan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(txtTelepon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(61, 61, 61)
                 .addGroup(panelAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnExport, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -214,31 +212,34 @@ public class DataBarang extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnExportActionPerformed
 
-    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSaveActionPerformed
+    }//GEN-LAST:event_btnAddActionPerformed
 
-    private void btnSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSaveMouseClicked
+    private void txtNomorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSaveMouseClicked
+    }//GEN-LAST:event_txtNomorActionPerformed
+
+    private void txtNamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNamaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNamaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnExport;
-    private javax.swing.JButton btnSave;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel panelAdd;
     private javax.swing.JPanel panelMain;
-    private javax.swing.JTable tblData;
-    private javax.swing.JTextField txtHarga;
-    private javax.swing.JTextField txtKategori;
-    private javax.swing.JTextField txtKode;
     private javax.swing.JTextField txtNama;
-    private javax.swing.JTextField txtSatuan;
+    private javax.swing.JTextField txtNomor;
+    private javax.swing.JTable txtTabel;
+    private javax.swing.JTextField txtTanggal;
+    private javax.swing.JTextField txtTelepon;
     // End of variables declaration//GEN-END:variables
 
     void placeHolder(javax.swing.JTextField textField, String placeholder) {
@@ -265,55 +266,52 @@ public class DataBarang extends javax.swing.JPanel {
     }
     
     private void loadData() {
-        getData((DefaultTableModel) tblData.getModel());
+        getData((DefaultTableModel) txtTabel.getModel());
     }
     
     private void showPanel() {
         panelMain.removeAll();
-        panelMain.add(new DataBarang());
+        panelMain.add(new Pembelian());
         panelMain.repaint();
         panelMain.revalidate();
     }
     
     private void resetForm() {
-        txtKode.setText("");
+        txtNomor.setText("");
+        txtTanggal.setText("");
         txtNama.setText("");
-        txtHarga.setText("");
-        txtKategori.setText("");
-        txtSatuan.setText("");
+        txtTelepon.setText("");
     }
     
     private void setTableModel() {
-        DefaultTableModel model = (DefaultTableModel) tblData.getModel();
-        model.addColumn("Kode Barang");
-        model.addColumn("Nama Barang");
-        model.addColumn("Harga Jual");
-        model.addColumn("Kategori Barang");
-        model.addColumn("Satuan Barang");
+        DefaultTableModel model = (DefaultTableModel) txtTabel.getModel();
+        model.addColumn("Nomor Transaksi");
+        model.addColumn("Tanggal Transaksi");
+        model.addColumn("Nama Supplier");
+        model.addColumn("Nomor Telepon");
     }
 
     private void getData(DefaultTableModel model) {
         model.setRowCount(0);
         
         try {
-            String sql = "SELECT * FROM barang";
+            String sql = "SELECT * FROM Pembelian";
             try (PreparedStatement st = conn.prepareStatement(sql)) {
                 ResultSet rs = st.executeQuery();
                 
                 while (rs.next()) {
-                    String kodeBarang     = rs.getString("kode");
-                    String namaBarang     = rs.getString("nama");
-                    String hargaJual      = rs.getString("harga_jual");
-                    String kategoriBarang = rs.getString("kategori");
-                    String satuanBarang   = rs.getString("satuan_barang");
+                    String nomortransaksi     = rs.getString("nomor");
+                    String tanggaltransaksi     = rs.getString("tanggal");
+                    String namasupplier      = rs.getString("nama");
+                    String nomortelepon = rs.getString("nomortelp");
                     
-                    Object[] rowData = {kodeBarang, namaBarang, hargaJual, kategoriBarang, satuanBarang};
+                    Object[] rowData = {nomortransaksi, tanggaltransaksi, namasupplier, nomortelepon};
                     model.addRow(rowData);
                 }
             }
         }
         catch (SQLException e) {
-            Logger.getLogger(DataBarang.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(Pembelian.class.getName()).log(Level.SEVERE, null, e);
         }
     }
     
@@ -341,18 +339,17 @@ public class DataBarang extends javax.swing.JPanel {
             }
         }
         catch (SQLException e) {
-            java.util.logging.Logger.getLogger(DataBarang.class.getName()).log(Level.SEVERE, null, e);
+            java.util.logging.Logger.getLogger(Pembelian.class.getName()).log(Level.SEVERE, null, e);
         }
         return urutan;
     }
 
     private void insertData() {
-        String kodeBarang      = txtKode.getText();
-        String namaBarang    = txtNama.getText();
-        String hargaJual   = txtHarga.getText();
-        String kategoriBarang = txtKategori.getText();
-        String satuanBarang = txtSatuan.getText();
-        if (kodeBarang.isEmpty() || namaBarang.isEmpty() || hargaJual.isEmpty() || kategoriBarang.isEmpty() || satuanBarang.isEmpty()) {
+        String nomortransaksi      = txtNomor.getText();
+        String tanggaltransaksi    = txtTanggal.getText();
+        String namasupplier   = txtNama.getText();
+        String nomortelepon = txtTelepon.getText();
+        if (nomortransaksi.isEmpty() || tanggaltransaksi.isEmpty() || namasupplier.isEmpty() || nomortelepon.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Semua kolom harus terisi!", "Validasi", JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -360,11 +357,10 @@ public class DataBarang extends javax.swing.JPanel {
         try {
             String sql = "INSERT INTO barang (kode, nama, harga_jual, kategori, satuan_barang) VALUES (?,?,?,?,?)";
             try (PreparedStatement st = conn.prepareStatement(sql)) {
-                st.setString(1, kodeBarang);
-                st.setString(2, namaBarang);
-                st.setString(3, hargaJual);
-                st.setString(4, kategoriBarang);
-                st.setString(5, satuanBarang);
+                st.setString(1, nomortransaksi);
+                st.setString(2, tanggaltransaksi);
+                st.setString(3, namasupplier);
+                st.setString(4, nomortelepon);
                 
                 int rowInserted = st.executeUpdate();
                 if (rowInserted > 0) {
@@ -376,29 +372,27 @@ public class DataBarang extends javax.swing.JPanel {
             }
         }
         catch (SQLException e) {
-            Logger.getLogger(DataBarang.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(Pembelian.class.getName()).log(Level.SEVERE, null, e);
         }
     }
 
     private void dataTable() {
-        int row = tblData.getSelectedRow();
+        int row = txtTabel.getSelectedRow();
         jLabel6.setText("Perbarui Data Pelanggan");
         
-        txtKode.setText(tblData.getValueAt(row, 0).toString());
-        txtNama.setText(tblData.getValueAt(row, 1).toString());
-        txtHarga.setText(tblData.getValueAt(row, 2).toString());
-        txtKategori.setText(tblData.getValueAt(row, 3).toString());
-        txtSatuan.setText(tblData.getValueAt(row, 4).toString());
+        txtNomor.setText(txtTabel.getValueAt(row, 0).toString());
+        txtTanggal.setText(txtTabel.getValueAt(row, 1).toString());
+        txtNama.setText(txtTabel.getValueAt(row, 2).toString());
+        txtTelepon.setText(txtTabel.getValueAt(row, 3).toString());
     }
     
     private void updateData() {
-        String kodeBarang     = txtKode.getText();
-        String namaBarang     = txtNama.getText();
-        String hargaJual      = txtHarga.getText();
-        String kategoriBarang = txtKategori.getText();
-        String satuanBarang   = txtSatuan.getText();
+        String Nomortransaksi     = txtNomor.getText();
+        String tanggaltransaksi     = txtTanggal.getText();
+        String namasupplier      = txtNama.getText();
+        String nomortelepon = txtTelepon.getText();
         
-        if (kodeBarang.isEmpty() || namaBarang.isEmpty() || hargaJual.isEmpty() || kategoriBarang.isEmpty() || satuanBarang.isEmpty()) {
+        if (Nomortransaksi.isEmpty() || tanggaltransaksi.isEmpty() || namasupplier.isEmpty() || nomortelepon.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Semua kolom harus terisi!", "Validasi", JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -406,11 +400,10 @@ public class DataBarang extends javax.swing.JPanel {
         try {
             String sql = "UPDATE barang SET nama=?, harga_jual=?, kategori=?, satuan_barang=? WHERE kode=?";
             try (PreparedStatement st = conn.prepareStatement(sql)) {
-                st.setString(1, namaBarang);
-                st.setString(2, hargaJual);
-                st.setString(3, kategoriBarang);
-                st.setString(4, satuanBarang);
-                st.setString(5, kodeBarang);
+                st.setString(1, Nomortransaksi);
+                st.setString(2, tanggaltransaksi);
+                st.setString(3, namasupplier);
+                st.setString(4, nomortelepon);
                 
                 int rowUpdated = st.executeUpdate();
                 if (rowUpdated > 0) {
@@ -422,19 +415,19 @@ public class DataBarang extends javax.swing.JPanel {
             }
         }
         catch (SQLException e) {
-            Logger.getLogger(DataBarang.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(Pembelian.class.getName()).log(Level.SEVERE, null, e);
         }
     }
 
     private void deleteData() {
-        int selectedRow = tblData.getSelectedRow();
+        int selectedRow = txtTabel.getSelectedRow();
         int confirm = JOptionPane.showConfirmDialog(this, 
                 "Apakah yakin ingin menghapus data ini?", 
                 "Konfirmasi Hapus Data", 
                 JOptionPane.YES_NO_OPTION);
         
         if (confirm == JOptionPane.YES_OPTION) {
-            String id = tblData.getValueAt(selectedRow, 0).toString();
+            String id = txtTabel.getValueAt(selectedRow, 0).toString();
             try {
                 String sql = "DELETE FROM barang WHERE kode=?";
                 try (PreparedStatement st = conn.prepareStatement(sql)) {
@@ -450,7 +443,7 @@ public class DataBarang extends javax.swing.JPanel {
                 }
             }
             catch (Exception e) {
-                Logger.getLogger(DataBarang.class.getName()).log(Level.SEVERE, null, e);
+                Logger.getLogger(Pembelian.class.getName()).log(Level.SEVERE, null, e);
             }
         }
         resetForm();
