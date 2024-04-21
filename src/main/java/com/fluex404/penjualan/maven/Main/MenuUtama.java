@@ -1,7 +1,5 @@
 package com.fluex404.penjualan.maven.Main;;
 
-import com.fluex404.penjualan.maven.View.MenuAnggota;
-import com.fluex404.penjualan.maven.View.MenuKategori;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -196,6 +194,11 @@ public class MenuUtama extends javax.swing.JFrame {
 
         btn_barang.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btn_barang.setText("Data Barang");
+        btn_barang.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_barangMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout pn_btnBarangLayout = new javax.swing.GroupLayout(pn_btnBarang);
         pn_btnBarang.setLayout(pn_btnBarangLayout);
@@ -512,16 +515,16 @@ public class MenuUtama extends javax.swing.JFrame {
         pn_dasarLayout.setHorizontalGroup(
             pn_dasarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pn_dasarLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(pn_utama, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(20, 20, 20))
+                .addContainerGap()
+                .addComponent(pn_utama, javax.swing.GroupLayout.DEFAULT_SIZE, 1116, Short.MAX_VALUE)
+                .addContainerGap())
         );
         pn_dasarLayout.setVerticalGroup(
             pn_dasarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pn_dasarLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(pn_utama, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(20, 20, 20))
+                .addContainerGap()
+                .addComponent(pn_utama, javax.swing.GroupLayout.DEFAULT_SIZE, 516, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pn_kanan.add(pn_dasar, java.awt.BorderLayout.CENTER);
@@ -535,6 +538,10 @@ public class MenuUtama extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         setExtendedState(MenuUtama.MAXIMIZED_BOTH);
     }//GEN-LAST:event_formWindowOpened
+
+    private void btn_barangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_barangMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_barangMouseClicked
 
     /**
      * @param args the command line arguments
@@ -620,7 +627,7 @@ public class MenuUtama extends javax.swing.JFrame {
                 pn_line.setBackground(new Color(0, 102, 153));
                 
                 pn_utama.removeAll();
-                pn_utama.add(new MenuAnggota());
+                pn_utama.add(new DataPelanggan());
                 pn_utama.repaint();
                 pn_utama.revalidate();
             }
@@ -645,7 +652,7 @@ public class MenuUtama extends javax.swing.JFrame {
                 pn_line1.setBackground(new Color(0, 102, 153));
                 
                 pn_utama.removeAll();
-                pn_utama.add(new MenuAnggota());
+                pn_utama.add(new DataSupplier());
                 pn_utama.repaint();
                 pn_utama.revalidate();
             }
@@ -695,7 +702,6 @@ public class MenuUtama extends javax.swing.JFrame {
                 pn_line3.setBackground(new Color(0, 102, 153));
                 
                 pn_utama.removeAll();
-                pn_utama.add(new MenuKategori());
                 pn_utama.repaint();
                 pn_utama.revalidate();
             }
@@ -720,7 +726,7 @@ public class MenuUtama extends javax.swing.JFrame {
                 pn_line6.setBackground(new Color(0, 102, 153));
                 
                 pn_utama.removeAll();
-                pn_utama.add(new MenuAnggota());
+                pn_utama.add(new Pembelian());
                 pn_utama.repaint();
                 pn_utama.revalidate();
             }
@@ -745,7 +751,6 @@ public class MenuUtama extends javax.swing.JFrame {
                 pn_line7.setBackground(new Color(0, 102, 153));
                 
                 pn_utama.removeAll();
-                pn_utama.add(new MenuAnggota());
                 pn_utama.repaint();
                 pn_utama.revalidate();
             }
@@ -770,7 +775,6 @@ public class MenuUtama extends javax.swing.JFrame {
                 pn_line8.setBackground(new Color(0, 102, 153));
                 
                 pn_utama.removeAll();
-                pn_utama.add(new MenuAnggota());
                 pn_utama.repaint();
                 pn_utama.revalidate();
             }
