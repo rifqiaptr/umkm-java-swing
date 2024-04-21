@@ -287,7 +287,7 @@ public class DataSupplier extends javax.swing.JPanel {
         model.setRowCount(0);
         
         try {
-            String sql = "SELECT * FROM supplier";
+            String sql = "SELECT * FROM suplier";
             try (PreparedStatement st = conn.prepareStatement(sql)) {
                 ResultSet rs = st.executeQuery();
                 
