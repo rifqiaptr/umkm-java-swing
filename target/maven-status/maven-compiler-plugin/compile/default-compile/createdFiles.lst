@@ -10,6 +10,7 @@ com/fluex404/penjualan/maven/Main/MenuUtama$3.class
 com/fluex404/penjualan/maven/View/MenuKategori$8.class
 Pallete/JPanelGradient.class
 com/fluex404/penjualan/maven/View/MenuKategori$1.class
+com/fluex404/penjualan/maven/Run.class
 com/fluex404/penjualan/maven/View/MenuAnggota$5.class
 com/fluex404/penjualan/maven/Main/FormLogin$2.class
 com/fluex404/penjualan/maven/Main/MenuUtama$6.class
@@ -30,6 +31,7 @@ com/fluex404/penjualan/maven/View/MenuKategori$9.class
 com/fluex404/penjualan/maven/View/MenuPenerbit$5.class
 com/fluex404/penjualan/maven/View/MenuAnggota$3.class
 com/fluex404/penjualan/maven/View/MenuKategori$11.class
+com/fluex404/penjualan/maven/db/PelangganEntity.class
 com/fluex404/penjualan/maven/Main/MenuUtama$9.class
 com/fluex404/penjualan/maven/Main/FormLogin.class
 com/fluex404/penjualan/maven/View/MenuPenerbit$9.class
