@@ -1,7 +1,5 @@
 package com.fluex404.penjualan.maven.Main;;
 
-import com.fluex404.penjualan.maven.View.MenuAnggota;
-import com.fluex404.penjualan.maven.View.MenuKategori;
 import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -620,7 +618,6 @@ public class MenuUtama extends javax.swing.JFrame {
                 pn_line.setBackground(new Color(0, 102, 153));
                 
                 pn_utama.removeAll();
-                pn_utama.add(new MenuAnggota());
                 pn_utama.repaint();
                 pn_utama.revalidate();
             }
@@ -645,7 +642,6 @@ public class MenuUtama extends javax.swing.JFrame {
                 pn_line1.setBackground(new Color(0, 102, 153));
                 
                 pn_utama.removeAll();
-                pn_utama.add(new MenuAnggota());
                 pn_utama.repaint();
                 pn_utama.revalidate();
             }
@@ -695,7 +691,6 @@ public class MenuUtama extends javax.swing.JFrame {
                 pn_line3.setBackground(new Color(0, 102, 153));
                 
                 pn_utama.removeAll();
-                pn_utama.add(new MenuKategori());
                 pn_utama.repaint();
                 pn_utama.revalidate();
             }
@@ -720,7 +715,6 @@ public class MenuUtama extends javax.swing.JFrame {
                 pn_line6.setBackground(new Color(0, 102, 153));
                 
                 pn_utama.removeAll();
-                pn_utama.add(new MenuAnggota());
                 pn_utama.repaint();
                 pn_utama.revalidate();
             }
@@ -745,7 +739,6 @@ public class MenuUtama extends javax.swing.JFrame {
                 pn_line7.setBackground(new Color(0, 102, 153));
                 
                 pn_utama.removeAll();
-                pn_utama.add(new MenuAnggota());
                 pn_utama.repaint();
                 pn_utama.revalidate();
             }
@@ -770,7 +763,6 @@ public class MenuUtama extends javax.swing.JFrame {
                 pn_line8.setBackground(new Color(0, 102, 153));
                 
                 pn_utama.removeAll();
-                pn_utama.add(new MenuAnggota());
                 pn_utama.repaint();
                 pn_utama.revalidate();
             }
