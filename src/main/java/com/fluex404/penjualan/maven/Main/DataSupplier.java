@@ -2,18 +2,12 @@ package com.fluex404.penjualan.maven.Main;
 
 import com.fluex404.penjualan.maven.Config.Koneksi;
 import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -25,8 +19,8 @@ public class DataSupplier extends javax.swing.JPanel {
         initComponents();
         
         conn = Koneksi.getConnection();
-        setTableModel();
-        loadData();
+        getData();
+        nonAktifButton();
         
         placeHolder(txtKode, "Kode Supplier");
         placeHolder(txtNama, "Nama Supplier");
@@ -72,9 +66,9 @@ public class DataSupplier extends javax.swing.JPanel {
         btnSave.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         btnSave.setForeground(new java.awt.Color(255, 255, 255));
         btnSave.setText("SAVE");
-        btnSave.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaveActionPerformed(evt);
+        btnSave.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSaveMouseClicked(evt);
             }
         });
 
@@ -82,9 +76,9 @@ public class DataSupplier extends javax.swing.JPanel {
         btnEdit.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         btnEdit.setForeground(new java.awt.Color(255, 255, 255));
         btnEdit.setText("EDIT");
-        btnEdit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditActionPerformed(evt);
+        btnEdit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEditMouseClicked(evt);
             }
         });
 
@@ -102,9 +96,9 @@ public class DataSupplier extends javax.swing.JPanel {
         btnDelete.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         btnDelete.setForeground(new java.awt.Color(255, 255, 255));
         btnDelete.setText("DELETE");
-        btnDelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteActionPerformed(evt);
+        btnDelete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnDeleteMouseClicked(evt);
             }
         });
 
@@ -112,11 +106,6 @@ public class DataSupplier extends javax.swing.JPanel {
         btnExport.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         btnExport.setForeground(new java.awt.Color(255, 255, 255));
         btnExport.setText("EXPORT");
-        btnExport.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExportActionPerformed(evt);
-            }
-        });
 
         tblData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -130,6 +119,11 @@ public class DataSupplier extends javax.swing.JPanel {
             }
         ));
         tblData.setRowHeight(30);
+        tblData.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblDataMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblData);
 
         javax.swing.GroupLayout panelAddLayout = new javax.swing.GroupLayout(panelAdd);
@@ -196,22 +190,129 @@ public class DataSupplier extends javax.swing.JPanel {
         add(panelMain, "card2");
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
-        showPanel();
-        loadData();
-    }//GEN-LAST:event_btnEditActionPerformed
+    private void btnSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSaveMouseClicked
+        String kodeSupplier = txtKode.getText();
+        String namaSupplier = txtNama.getText();
+        String alamat       = txtAlamat.getText();
+        String noTelp       = txtNoTelp.getText();
+        String email        = txtEmail.getText();
+        
+        if (kodeSupplier.isEmpty() || namaSupplier.isEmpty() || alamat.isEmpty() || noTelp.isEmpty() || email.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Semua kolom harus diisi!", "Validasi", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+                
+        try {
+            String sql = "INSERT INTO supplier (kode, nama, alamat, nomor_telp, email) VALUES (?,?,?,?,?)";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1,kodeSupplier);
+            stmt.setString(2,namaSupplier);
+            stmt.setString(3,alamat);
+            stmt.setString(4,noTelp);
+            stmt.setString(5,email);
+            
+            int rowInserted = stmt.executeUpdate();
+            if (rowInserted > 0) {
+                JOptionPane.showMessageDialog(this, "Data Berhasil Ditambahkan");
+                resetForm();
+                getData();
+            }
+            stmt.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(DataBarang.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnSaveMouseClicked
 
-    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnDeleteActionPerformed
+    private void btnEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditMouseClicked
+        int selectedRow = tblData.getSelectedRow();
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(this, "Pilih baris yang akan diedit!");
+            return;
+        }
+        
+        String id           = tblData.getValueAt(selectedRow, 0).toString();
+        String kodeSupplier = txtKode.getText();
+        String namaSupplier = txtNama.getText();
+        String alamat       = txtAlamat.getText();
+        String noTelp       = txtNoTelp.getText();
+        String email        = txtEmail.getText();
 
-    private void btnExportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnExportActionPerformed
+        if (kodeSupplier.isEmpty() || namaSupplier.isEmpty() || alamat.isEmpty() || noTelp.isEmpty() || email.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Semua kolom harus diisi!", "Validasi", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
 
-    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSaveActionPerformed
+        try {
+            String sql = "UPDATE supplier SET kode=?, nama=?, alamat=?, nomor_telp=?, email=? WHERE id=?";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, kodeSupplier);
+            stmt.setString(2, namaSupplier);
+            stmt.setString(3, alamat);
+            stmt.setString(4, noTelp);
+            stmt.setString(5, email);
+            stmt.setString(6, id);
+
+            int rowUpdated = stmt.executeUpdate();
+            if (rowUpdated > 0) {
+                JOptionPane.showMessageDialog(this, "Data Berhasil Diedit");
+                resetForm();
+                getData();
+            }
+            stmt.close();
+        } catch (SQLException e) {
+            Logger.getLogger(DataBarang.class.getName()).log(Level.SEVERE, null, e);
+        }
+    }//GEN-LAST:event_btnEditMouseClicked
+
+    private void tblDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDataMouseClicked
+        int selectedRow = tblData.getSelectedRow();
+        if (selectedRow != -1) {
+            String kodeSupplier = tblData.getValueAt(selectedRow, 1).toString();
+            String namaSupplier = tblData.getValueAt(selectedRow, 2).toString();
+            String alamat       = tblData.getValueAt(selectedRow, 3).toString();
+            String noTelp       = tblData.getValueAt(selectedRow, 4).toString();
+            String email        = tblData.getValueAt(selectedRow, 5).toString();
+            
+            txtKode.setText(kodeSupplier);
+            txtNama.setText(namaSupplier);
+            txtAlamat.setText(alamat);
+            txtNoTelp.setText(noTelp);
+            txtEmail.setText(email);
+        }
+        btnSave.setEnabled(false);
+        btnEdit.setEnabled(true);
+        btnDelete.setEnabled(true);
+    }//GEN-LAST:event_tblDataMouseClicked
+
+    private void btnDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeleteMouseClicked
+        int selectedRow = tblData.getSelectedRow();
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(this, "Pilih baris yang akan diedit!");
+            return;
+        }
+        
+        int confirm = JOptionPane.showConfirmDialog(this, "Hapus data?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
+        if (confirm == JOptionPane.YES_OPTION) {
+            String id = tblData.getValueAt(selectedRow, 0).toString();
+            
+            try {
+                String sql = "DELETE FROM supplier WHERE id=?";
+                PreparedStatement stmt = conn.prepareStatement(sql);
+                stmt.setString(1, id);
+                
+                int rowDelete = stmt.executeUpdate();
+                if (rowDelete > 0) {
+                    JOptionPane.showMessageDialog(this, "Data berhasil dihapus");
+                }
+                stmt.close();
+            } catch (Exception e) {
+                Logger.getLogger(DataBarang.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
+        resetForm();
+        getData();
+        nonAktifButton();
+    }//GEN-LAST:event_btnDeleteMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -255,15 +356,31 @@ public class DataSupplier extends javax.swing.JPanel {
         });
     }
     
-    private void loadData() {
-        getData((DefaultTableModel) tblData.getModel());
-    }
-    
-    private void showPanel() {
-        panelMain.removeAll();
-        panelMain.add(new DataSupplier());
-        panelMain.repaint();
-        panelMain.revalidate();
+    private void getData() {
+        DefaultTableModel model = (DefaultTableModel) tblData.getModel();
+        model.setRowCount(0);
+        
+        try {
+            String sql = "SELECT * FROM supplier";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+            
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String kodeSupplier = rs.getString("kode");
+                String namaSupplier = rs.getString("nama");
+                String alamat       = rs.getString("alamat");
+                String noTelp       = rs.getString("nomor_telp");
+                String email        = rs.getString("email");
+                
+                Object[] rowData = {id, kodeSupplier, namaSupplier, alamat, noTelp, email};
+                model.addRow(rowData);
+            }
+            rs.close();
+            stmt.close();
+        } catch (Exception e) {
+            Logger.getLogger(DataBarang.class.getName()).log(Level.SEVERE, null, e);
+        }
     }
     
     private void resetForm() {
@@ -274,178 +391,9 @@ public class DataSupplier extends javax.swing.JPanel {
         txtEmail.setText("");
     }
     
-    private void setTableModel() {
-        DefaultTableModel model = (DefaultTableModel) tblData.getModel();
-        model.addColumn("Kode Supplier");
-        model.addColumn("Nama Supplier");
-        model.addColumn("Alamat");
-        model.addColumn("No Telepon");
-        model.addColumn("Email");
-    }
-
-    private void getData(DefaultTableModel model) {
-        model.setRowCount(0);
-        
-        try {
-            String sql = "SELECT * FROM suplier";
-            try (PreparedStatement st = conn.prepareStatement(sql)) {
-                ResultSet rs = st.executeQuery();
-                
-                while (rs.next()) {
-                    String kodeSupplier     = rs.getString("kode");
-                    String namaSupplier     = rs.getString("nama");
-                    String alamat           = rs.getString("alamat");
-                    String notelp           = rs.getString("nomor_telp");
-                    String email            = rs.getString("email");
-                    
-                    Object[] rowData = {kodeSupplier, namaSupplier, alamat, notelp, email};
-                    model.addRow(rowData);
-                }
-            }
-        }
-        catch (SQLException e) {
-            Logger.getLogger(DataSupplier.class.getName()).log(Level.SEVERE, null, e);
-        }
-    }
-    
-    private String setIDAnggota() {
-        String urutan = null;
-        Date now = new Date();
-        SimpleDateFormat noFormat = new SimpleDateFormat("yyMM");
-        String no = noFormat.format(now);
-        
-        String sql = "SELECT RIGHT(ID_Pelanggan, 3) AS Nomor " +
-                     "FROM tbl_pelanggan " +
-                     "WHERE ID_Pelanggan LIKE 'PLG" + no + "%' " +
-                     "ORDER BY ID_Pelanggan DESC " +
-                     "LIMIT 1";
-        
-        try (PreparedStatement st = conn.prepareStatement(sql)) {
-            ResultSet rs = st.executeQuery();
-            
-            if (rs.next()) {
-                int nomor = Integer.parseInt(rs.getString("Nomor")) + 1;
-                urutan = "PLG" + no + String.format("%03d", nomor);
-            }
-            else {
-                urutan = "PLG" + no + "001";
-            }
-        }
-        catch (SQLException e) {
-            java.util.logging.Logger.getLogger(DataSupplier.class.getName()).log(Level.SEVERE, null, e);
-        }
-        return urutan;
-    }
-
-    private void insertData() {
-        String kodeSupplier         = txtKode.getText();
-        String namaSupplier         = txtNama.getText();
-        String alamat               = txtAlamat.getText();
-        String noTelp               = txtNoTelp.getText();
-        String email                = txtEmail.getText();
-        if (kodeSupplier.isEmpty() || namaSupplier.isEmpty() || alamat.isEmpty() || noTelp.isEmpty() || email.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Semua kolom harus terisi!", "Validasi", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        
-        try {
-            String sql = "INSERT INTO supplier (kode, nama, alamat, nomor_telp, email) VALUES (?,?,?,?,?)";
-            try (PreparedStatement st = conn.prepareStatement(sql)) {
-                st.setString(1, kodeSupplier);
-                st.setString(2, namaSupplier);
-                st.setString(3, alamat);
-                st.setString(4, noTelp);
-                st.setString(5, email);
-                
-                int rowInserted = st.executeUpdate();
-                if (rowInserted > 0) {
-                    JOptionPane.showMessageDialog(this, "Data Berhasil Ditambahkan");
-                    resetForm();
-                    loadData();
-                    showPanel();
-                }
-            }
-        }
-        catch (SQLException e) {
-            Logger.getLogger(DataSupplier.class.getName()).log(Level.SEVERE, null, e);
-        }
-    }
-
-    private void dataTable() {
-        int row = tblData.getSelectedRow();
-        jLabel6.setText("Perbarui Data Pelanggan");
-        
-        txtKode.setText(tblData.getValueAt(row, 0).toString());
-        txtNama.setText(tblData.getValueAt(row, 1).toString());
-        txtAlamat.setText(tblData.getValueAt(row, 2).toString());
-        txtNoTelp.setText(tblData.getValueAt(row, 3).toString());
-        txtEmail.setText(tblData.getValueAt(row, 4).toString());
-    }
-    
-    private void updateData() {
-        String kodeSupplier     = txtKode.getText();
-        String namaSupplier     = txtNama.getText();
-        String alamat           = txtAlamat.getText();
-        String noTelp           = txtNoTelp.getText();
-        String email            = txtEmail.getText();
-        
-        if (kodeSupplier.isEmpty() || namaSupplier.isEmpty() || alamat.isEmpty() || noTelp.isEmpty() || email.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Semua kolom harus terisi!", "Validasi", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        
-        try {
-            String sql = "UPDATE supplier SET nama=?, alamat=?, nomor_telp=?, email=? WHERE kode=?";
-            try (PreparedStatement st = conn.prepareStatement(sql)) {
-                st.setString(1, namaSupplier);
-                st.setString(2, alamat);
-                st.setString(3, noTelp);
-                st.setString(4, email);
-                st.setString(5, kodeSupplier);
-                
-                int rowUpdated = st.executeUpdate();
-                if (rowUpdated > 0) {
-                    JOptionPane.showMessageDialog(this, "Data Berhasil Diperbarui");
-                    resetForm();
-                    loadData();
-                    showPanel();
-                }
-            }
-        }
-        catch (SQLException e) {
-            Logger.getLogger(DataSupplier.class.getName()).log(Level.SEVERE, null, e);
-        }
-    }
-
-    private void deleteData() {
-        int selectedRow = tblData.getSelectedRow();
-        int confirm = JOptionPane.showConfirmDialog(this, 
-                "Apakah yakin ingin menghapus data ini?", 
-                "Konfirmasi Hapus Data", 
-                JOptionPane.YES_NO_OPTION);
-        
-        if (confirm == JOptionPane.YES_OPTION) {
-            String id = tblData.getValueAt(selectedRow, 0).toString();
-            try {
-                String sql = "DELETE FROM supplier WHERE kode=?";
-                try (PreparedStatement st = conn.prepareStatement(sql)) {
-                    st.setString(1, id);
-                    
-                    int rowDeleted = st.executeUpdate();
-                    if (rowDeleted > 0) {
-                        JOptionPane.showMessageDialog(this, "Data Berhasil Dihapus");
-                    }
-                    else {
-                        JOptionPane.showMessageDialog(this, "Data Gagal Dihapus");
-                    }   
-                }
-            }
-            catch (Exception e) {
-                Logger.getLogger(DataSupplier.class.getName()).log(Level.SEVERE, null, e);
-            }
-        }
-        resetForm();
-        loadData();
-        showPanel();
+    private void nonAktifButton() {
+        btnSave.setEnabled(true);
+        btnEdit.setEnabled(false);
+        btnDelete.setEnabled(false);
     }
 }

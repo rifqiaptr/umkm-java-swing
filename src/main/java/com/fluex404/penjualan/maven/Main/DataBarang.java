@@ -2,18 +2,12 @@ package com.fluex404.penjualan.maven.Main;
 
 import com.fluex404.penjualan.maven.Config.Koneksi;
 import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -25,8 +19,8 @@ public class DataBarang extends javax.swing.JPanel {
         initComponents();
         
         conn = Koneksi.getConnection();
-        setTableModel();
-        loadData();
+        getData();
+        nonAktifButton();
         
         placeHolder(txtKode, "Kode Barang");
         placeHolder(txtNama, "Nama Barang");
@@ -82,6 +76,11 @@ public class DataBarang extends javax.swing.JPanel {
         btnEdit.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         btnEdit.setForeground(new java.awt.Color(255, 255, 255));
         btnEdit.setText("EDIT");
+        btnEdit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEditMouseClicked(evt);
+            }
+        });
 
         txtKode.setFont(new java.awt.Font("SansSerif", 2, 14)); // NOI18N
 
@@ -97,6 +96,11 @@ public class DataBarang extends javax.swing.JPanel {
         btnDelete.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         btnDelete.setForeground(new java.awt.Color(255, 255, 255));
         btnDelete.setText("DELETE");
+        btnDelete.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnDeleteMouseClicked(evt);
+            }
+        });
 
         btnExport.setBackground(new java.awt.Color(102, 102, 102));
         btnExport.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -105,16 +109,18 @@ public class DataBarang extends javax.swing.JPanel {
 
         tblData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {},
-                {},
-                {},
-                {}
+
             },
             new String [] {
-
+                "ID", "Kode Barang", "Nama Barang", "Harga Jual", "Kategori Barang", "Satuan Barang"
             }
         ));
         tblData.setRowHeight(30);
+        tblData.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblDataMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblData);
 
         javax.swing.GroupLayout panelAddLayout = new javax.swing.GroupLayout(panelAdd);
@@ -182,34 +188,128 @@ public class DataBarang extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSaveMouseClicked
+        String kodeBarang   = txtKode.getText();
+        String namaBarang   = txtNama.getText();
+        String hargaJual    = txtHarga.getText();
+        String kategori     = txtKategori.getText();
+        String satuanBarang = txtSatuan.getText();
+        
+        if (kodeBarang.isEmpty() || namaBarang.isEmpty() || hargaJual.isEmpty() || kategori.isEmpty() || satuanBarang.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Semua kolom harus diisi!", "Validasi", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+                
         try {
-            String kodeBarang = txtKode.getText();
-            String namaBarang = txtNama.getText();
-            String harga_jual = txtHarga.getText();
-            String kategori = txtKategori.getText();
-            String satuan_barang = txtSatuan.getText();
-            
-            // insert ke database lewat sql
-            String sql = "insert into barang (kode, nama, harga_jual, kategori, satuan_barang)\n" +
-                        "values(?,?,?,?,?);";
-            
-            Connection con = Koneksi.getConnection();
-            PreparedStatement stmt=con.prepareStatement(sql);
+            String sql = "INSERT INTO barang (kode, nama, harga_jual, kategori, satuan_barang) VALUES (?,?,?,?,?)";
+            PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1,kodeBarang);
             stmt.setString(2,namaBarang);
-            stmt.setString(3,harga_jual);
+            stmt.setString(3,hargaJual);
             stmt.setString(4,kategori);
-            stmt.setString(5,satuan_barang);
-            stmt.executeUpdate(); 
+            stmt.setString(5,satuanBarang);
             
-            // get list data dari database
-            loadData();
-            
-            // tampilkan ke table
+            int rowInserted = stmt.executeUpdate();
+            if (rowInserted > 0) {
+                JOptionPane.showMessageDialog(this, "Data Berhasil Ditambahkan");
+                resetForm();
+                getData();
+            }
+            stmt.close();
         } catch (SQLException ex) {
+            Logger.getLogger(DataBarang.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnSaveMouseClicked
 
+    private void btnEditMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditMouseClicked
+        int selectedRow = tblData.getSelectedRow();
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(this, "Pilih baris yang akan diedit!");
+            return;
+        }
+        
+        String id           = tblData.getValueAt(selectedRow, 0).toString();
+        String kodeBarang   = txtKode.getText();
+        String namaBarang   = txtNama.getText();
+        String hargaJual    = txtHarga.getText();
+        String kategori     = txtKategori.getText();
+        String satuanBarang = txtSatuan.getText();
+
+        if (kodeBarang.isEmpty() || namaBarang.isEmpty() || hargaJual.isEmpty() || kategori.isEmpty() || satuanBarang.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Semua kolom harus diisi!", "Validasi", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        try {
+            String sql = "UPDATE barang SET kode=?, nama=?, harga_jual=?, kategori=?, satuan_barang=? WHERE id=?";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, kodeBarang);
+            stmt.setString(2, namaBarang);
+            stmt.setString(3, hargaJual);
+            stmt.setString(4, kategori);
+            stmt.setString(5, satuanBarang);
+            stmt.setString(6, id);
+
+            int rowUpdated = stmt.executeUpdate();
+            if (rowUpdated > 0) {
+                JOptionPane.showMessageDialog(this, "Data Berhasil Diedit");
+                resetForm();
+                getData();
+            }
+            stmt.close();
+        } catch (SQLException e) {
+            Logger.getLogger(DataBarang.class.getName()).log(Level.SEVERE, null, e);
+        }
+    }//GEN-LAST:event_btnEditMouseClicked
+
+    private void tblDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDataMouseClicked
+        int selectedRow = tblData.getSelectedRow();
+        if (selectedRow != -1) {
+            String kodeBarang    = tblData.getValueAt(selectedRow, 1).toString();
+            String namaBarang    = tblData.getValueAt(selectedRow, 2).toString();
+            String harga_jual    = tblData.getValueAt(selectedRow, 3).toString();
+            String kategori      = tblData.getValueAt(selectedRow, 4).toString();
+            String satuan_barang = tblData.getValueAt(selectedRow, 5).toString();
+            
+            txtKode.setText(kodeBarang);
+            txtNama.setText(namaBarang);
+            txtHarga.setText(harga_jual);
+            txtKategori.setText(kategori);
+            txtSatuan.setText(satuan_barang);
+        }
+        btnSave.setEnabled(false);
+        btnEdit.setEnabled(true);
+        btnDelete.setEnabled(true);
+    }//GEN-LAST:event_tblDataMouseClicked
+
+    private void btnDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeleteMouseClicked
+        int selectedRow = tblData.getSelectedRow();
+        if (selectedRow == -1) {
+            JOptionPane.showMessageDialog(this, "Pilih baris yang akan diedit!");
+            return;
+        }
+        
+        int confirm = JOptionPane.showConfirmDialog(this, "Hapus data?", "Konfirmasi", JOptionPane.YES_NO_OPTION);
+        if (confirm == JOptionPane.YES_OPTION) {
+            String id = tblData.getValueAt(selectedRow, 0).toString();
+            
+            try {
+                String sql = "DELETE FROM barang WHERE id=?";
+                PreparedStatement stmt = conn.prepareStatement(sql);
+                stmt.setString(1, id);
+                
+                int rowDelete = stmt.executeUpdate();
+                if (rowDelete > 0) {
+                    JOptionPane.showMessageDialog(this, "Data berhasil dihapus");
+                }
+                stmt.close();
+            } catch (Exception e) {
+                Logger.getLogger(DataBarang.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
+        resetForm();
+        getData();
+        nonAktifButton();
+    }//GEN-LAST:event_btnDeleteMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;
@@ -252,15 +352,31 @@ public class DataBarang extends javax.swing.JPanel {
         });
     }
     
-    private void loadData() {
-        getData((DefaultTableModel) tblData.getModel());
-    }
-    
-    private void showPanel() {
-        panelMain.removeAll();
-        panelMain.add(new DataBarang());
-        panelMain.repaint();
-        panelMain.revalidate();
+    private void getData() {
+        DefaultTableModel model = (DefaultTableModel) tblData.getModel();
+        model.setRowCount(0);
+        
+        try {
+            String sql = "SELECT * FROM barang";
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+            
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                String kodeBarang = rs.getString("kode");
+                String namaBarang = rs.getString("nama");
+                String hargaJual = rs.getString("harga_jual");
+                String kategoriBarang = rs.getString("kategori");
+                String satuanBarang = rs.getString("satuan_barang");
+                
+                Object[] rowData = {id, kodeBarang, namaBarang, hargaJual, kategoriBarang, satuanBarang};
+                model.addRow(rowData);
+            }
+            rs.close();
+            stmt.close();
+        } catch (Exception e) {
+            Logger.getLogger(DataBarang.class.getName()).log(Level.SEVERE, null, e);
+        }
     }
     
     private void resetForm() {
@@ -270,179 +386,10 @@ public class DataBarang extends javax.swing.JPanel {
         txtKategori.setText("");
         txtSatuan.setText("");
     }
-    
-    private void setTableModel() {
-        DefaultTableModel model = (DefaultTableModel) tblData.getModel();
-        model.addColumn("Kode Barang");
-        model.addColumn("Nama Barang");
-        model.addColumn("Harga Jual");
-        model.addColumn("Kategori Barang");
-        model.addColumn("Satuan Barang");
-    }
 
-    private void getData(DefaultTableModel model) {
-        model.setRowCount(0);
-        
-        try {
-            String sql = "SELECT * FROM barang";
-            try (PreparedStatement st = conn.prepareStatement(sql)) {
-                ResultSet rs = st.executeQuery();
-                
-                while (rs.next()) {
-                    String kodeBarang     = rs.getString("kode");
-                    String namaBarang     = rs.getString("nama");
-                    String hargaJual      = rs.getString("harga_jual");
-                    String kategoriBarang = rs.getString("kategori");
-                    String satuanBarang   = rs.getString("satuan_barang");
-                    
-                    Object[] rowData = {kodeBarang, namaBarang, hargaJual, kategoriBarang, satuanBarang};
-                    model.addRow(rowData);
-                }
-            }
-        }
-        catch (SQLException e) {
-            Logger.getLogger(DataBarang.class.getName()).log(Level.SEVERE, null, e);
-        }
-    }
-    
-    private String setIDAnggota() {
-        String urutan = null;
-        Date now = new Date();
-        SimpleDateFormat noFormat = new SimpleDateFormat("yyMM");
-        String no = noFormat.format(now);
-        
-        String sql = "SELECT RIGHT(ID_Pelanggan, 3) AS Nomor " +
-                     "FROM tbl_pelanggan " +
-                     "WHERE ID_Pelanggan LIKE 'PLG" + no + "%' " +
-                     "ORDER BY ID_Pelanggan DESC " +
-                     "LIMIT 1";
-        
-        try (PreparedStatement st = conn.prepareStatement(sql)) {
-            ResultSet rs = st.executeQuery();
-            
-            if (rs.next()) {
-                int nomor = Integer.parseInt(rs.getString("Nomor")) + 1;
-                urutan = "PLG" + no + String.format("%03d", nomor);
-            }
-            else {
-                urutan = "PLG" + no + "001";
-            }
-        }
-        catch (SQLException e) {
-            java.util.logging.Logger.getLogger(DataBarang.class.getName()).log(Level.SEVERE, null, e);
-        }
-        return urutan;
-    }
-
-    private void insertData() {
-        String kodeBarang      = txtKode.getText();
-        String namaBarang    = txtNama.getText();
-        String hargaJual   = txtHarga.getText();
-        String kategoriBarang = txtKategori.getText();
-        String satuanBarang = txtSatuan.getText();
-        if (kodeBarang.isEmpty() || namaBarang.isEmpty() || hargaJual.isEmpty() || kategoriBarang.isEmpty() || satuanBarang.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Semua kolom harus terisi!", "Validasi", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        
-        try {
-            String sql = "INSERT INTO barang (kode, nama, harga_jual, kategori, satuan_barang) VALUES (?,?,?,?,?)";
-            try (PreparedStatement st = conn.prepareStatement(sql)) {
-                st.setString(1, kodeBarang);
-                st.setString(2, namaBarang);
-                st.setString(3, hargaJual);
-                st.setString(4, kategoriBarang);
-                st.setString(5, satuanBarang);
-                
-                int rowInserted = st.executeUpdate();
-                if (rowInserted > 0) {
-                    JOptionPane.showMessageDialog(this, "Data Berhasil Ditambahkan");
-                    resetForm();
-                    loadData();
-                    showPanel();
-                }
-            }
-        }
-        catch (SQLException e) {
-            Logger.getLogger(DataBarang.class.getName()).log(Level.SEVERE, null, e);
-        }
-    }
-
-    private void dataTable() {
-        int row = tblData.getSelectedRow();
-        jLabel6.setText("Perbarui Data Pelanggan");
-        
-        txtKode.setText(tblData.getValueAt(row, 0).toString());
-        txtNama.setText(tblData.getValueAt(row, 1).toString());
-        txtHarga.setText(tblData.getValueAt(row, 2).toString());
-        txtKategori.setText(tblData.getValueAt(row, 3).toString());
-        txtSatuan.setText(tblData.getValueAt(row, 4).toString());
-    }
-    
-    private void updateData() {
-        String kodeBarang     = txtKode.getText();
-        String namaBarang     = txtNama.getText();
-        String hargaJual      = txtHarga.getText();
-        String kategoriBarang = txtKategori.getText();
-        String satuanBarang   = txtSatuan.getText();
-        
-        if (kodeBarang.isEmpty() || namaBarang.isEmpty() || hargaJual.isEmpty() || kategoriBarang.isEmpty() || satuanBarang.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Semua kolom harus terisi!", "Validasi", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        
-        try {
-            String sql = "UPDATE barang SET nama=?, harga_jual=?, kategori=?, satuan_barang=? WHERE kode=?";
-            try (PreparedStatement st = conn.prepareStatement(sql)) {
-                st.setString(1, namaBarang);
-                st.setString(2, hargaJual);
-                st.setString(3, kategoriBarang);
-                st.setString(4, satuanBarang);
-                st.setString(5, kodeBarang);
-                
-                int rowUpdated = st.executeUpdate();
-                if (rowUpdated > 0) {
-                    JOptionPane.showMessageDialog(this, "Data Berhasil Diperbarui");
-                    resetForm();
-                    loadData();
-                    showPanel();
-                }
-            }
-        }
-        catch (SQLException e) {
-            Logger.getLogger(DataBarang.class.getName()).log(Level.SEVERE, null, e);
-        }
-    }
-
-    private void deleteData() {
-        int selectedRow = tblData.getSelectedRow();
-        int confirm = JOptionPane.showConfirmDialog(this, 
-                "Apakah yakin ingin menghapus data ini?", 
-                "Konfirmasi Hapus Data", 
-                JOptionPane.YES_NO_OPTION);
-        
-        if (confirm == JOptionPane.YES_OPTION) {
-            String id = tblData.getValueAt(selectedRow, 0).toString();
-            try {
-                String sql = "DELETE FROM barang WHERE kode=?";
-                try (PreparedStatement st = conn.prepareStatement(sql)) {
-                    st.setString(1, id);
-                    
-                    int rowDeleted = st.executeUpdate();
-                    if (rowDeleted > 0) {
-                        JOptionPane.showMessageDialog(this, "Data Berhasil Dihapus");
-                    }
-                    else {
-                        JOptionPane.showMessageDialog(this, "Data Gagal Dihapus");
-                    }   
-                }
-            }
-            catch (Exception e) {
-                Logger.getLogger(DataBarang.class.getName()).log(Level.SEVERE, null, e);
-            }
-        }
-        resetForm();
-        loadData();
-        showPanel();
+    private void nonAktifButton() {
+        btnSave.setEnabled(true);
+        btnEdit.setEnabled(false);
+        btnDelete.setEnabled(false);
     }
 }
