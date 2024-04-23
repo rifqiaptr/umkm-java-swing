@@ -109,13 +109,13 @@ public class DataSupplier extends javax.swing.JPanel {
 
         tblData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {},
-                {},
-                {},
-                {}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-
+                "ID", "Kode Supplier", "Nama Supplier", "Alamat Supplier", "Nomor Telepon", "Email"
             }
         ));
         tblData.setRowHeight(30);
@@ -203,7 +203,7 @@ public class DataSupplier extends javax.swing.JPanel {
         }
                 
         try {
-            String sql = "INSERT INTO supplier (kode, nama, alamat, nomor_telp, email) VALUES (?,?,?,?,?)";
+            String sql = "INSERT INTO suplier (kode, nama, alamat, nomor_telp, email) VALUES (?,?,?,?,?)";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1,kodeSupplier);
             stmt.setString(2,namaSupplier);
@@ -243,7 +243,7 @@ public class DataSupplier extends javax.swing.JPanel {
         }
 
         try {
-            String sql = "UPDATE supplier SET kode=?, nama=?, alamat=?, nomor_telp=?, email=? WHERE id=?";
+            String sql = "UPDATE suplier SET kode=?, nama=?, alamat=?, nomor_telp=?, email=? WHERE id=?";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, kodeSupplier);
             stmt.setString(2, namaSupplier);
@@ -296,7 +296,7 @@ public class DataSupplier extends javax.swing.JPanel {
             String id = tblData.getValueAt(selectedRow, 0).toString();
             
             try {
-                String sql = "DELETE FROM supplier WHERE id=?";
+                String sql = "DELETE FROM suplier WHERE id=?";
                 PreparedStatement stmt = conn.prepareStatement(sql);
                 stmt.setString(1, id);
                 
@@ -361,7 +361,7 @@ public class DataSupplier extends javax.swing.JPanel {
         model.setRowCount(0);
         
         try {
-            String sql = "SELECT * FROM supplier";
+            String sql = "SELECT * FROM suplier";
             PreparedStatement stmt = conn.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
             

@@ -109,13 +109,13 @@ public class DataPelanggan extends javax.swing.JPanel {
 
         tblData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {},
-                {},
-                {},
-                {}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-
+                "ID", "Kode Pelanggan", "Nama Pelanggan", "Alamat Pelanggan", "Nomor Telepon", "Email"
             }
         ));
         tblData.setRowHeight(30);
