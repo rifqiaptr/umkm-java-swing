@@ -4,7 +4,12 @@ import com.fluex404.penjualan.maven.Config.Koneksi;
 import java.awt.Color;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -326,25 +331,21 @@ public class DataPelanggan extends javax.swing.JPanel {
 
     private void btnExportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExportMouseClicked
         try {
-            // Path to the .jrxml template file
-            String jrxmlFilePath = "C:\\Users\\ASUS\\JaspersoftWorkspace\\MyReports\\report_template.jrxml";
-
-            // Compile the .jrxml file into JasperReport object
-            JasperReport jasperReport = JasperCompileManager.compileReport(jrxmlFilePath);
-
+            
             // Parameters for report (if any)
             HashMap<String, Object> parameters = new HashMap<>();
             parameters.put("ReportTitle", "Data Pelanggan");
-
-            // Fill the report with data
+            
+            //load report location
+            InputStream in = this.getClass().getClassLoader().getResourceAsStream("./report/pelanggan_report.jrxml");
+            
+            //compile report
+            JasperReport jasperReport = (JasperReport) JasperCompileManager.compileReport(in);
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, conn);
-
-            // Update this to a valid path on your system
-            String pdfFilePath = "C:\\Users\\ASUS\\JaspersoftWorkspace\\MyReports\\exported_report.pdf";
-            JasperExportManager.exportReportToPdfFile(jasperPrint, pdfFilePath);
-
-            // View the report in JasperViewer
-            JasperViewer.viewReport(jasperPrint, false); // Ensure only one viewer is opened
+            
+            //view report to UI
+            JasperViewer.viewReport(jasperPrint, false);
+            
 
             JOptionPane.showMessageDialog(this, "Laporan berhasil diekspor ke PDF");
 
