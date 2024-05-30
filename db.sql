@@ -30,7 +30,7 @@ CREATE TABLE `barang` (
   `kategori` varchar(255) DEFAULT NULL,
   `satuan_barang` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `barang` (
 
 LOCK TABLES `barang` WRITE;
 /*!40000 ALTER TABLE `barang` DISABLE KEYS */;
-INSERT INTO `barang` (`id`, `kode`, `nama`, `harga_jual`, `kategori`, `satuan_barang`) VALUES (1,'123ABC','Kursi',12000.00,'Perabotan','pcs');
+INSERT INTO `barang` (`id`, `kode`, `nama`, `harga_jual`, `kategori`, `satuan_barang`) VALUES (1,'123ABC','Kursi',12000.00,'Perabotan','pcs'),(2,'BRG001','Pensil HB',1500.00,'Alat Tulis','pcs'),(3,'BRG002','Buku Tulis 40 Lembar',5000.00,'Alat Tulis','pcs'),(4,'BRG003','Penggaris 30 cm',2500.00,'Alat Tulis','pcs'),(5,'BRG004','Penghapus',1000.00,'Alat Tulis','pcs'),(6,'BRG005','Spidol Hitam',3500.00,'Alat Tulis','pcs'),(7,'BRG006','Tipe-X',4000.00,'Alat Tulis','pcs'),(8,'BRG007','Stapler',12000.00,'Alat Kantor','pcs'),(9,'BRG008','Kertas A4 80gsm',50000.00,'Alat Kantor','rim'),(10,'BRG009','Klip Kertas',1500.00,'Alat Kantor','box'),(11,'BRG010','Map Plastik',2000.00,'Alat Kantor','pcs'),(12,'BRG011','Ballpoint',2500.00,'Alat Tulis','pcs'),(13,'BRG012','Amplop Coklat',3000.00,'Alat Kantor','pcs'),(14,'BRG013','Lem Kertas',2000.00,'Alat Tulis','pcs'),(15,'BRG014','Cutter',5000.00,'Alat Tulis','pcs'),(16,'BRG015','Sampul Buku',1000.00,'Alat Tulis','pcs'),(17,'BRG016','Binder Clip',2500.00,'Alat Kantor','box'),(18,'BRG017','Kertas HVS A4 70gsm',45000.00,'Alat Kantor','rim'),(19,'BRG018','Flashdisk 16GB',75000.00,'Elektronik','pcs'),(20,'BRG019','Kabel USB',25000.00,'Elektronik','pcs'),(21,'BRG020','Mouse Wireless',120000.00,'Elektronik','pcs'),(22,'BRG021','Keyboard',80000.00,'Elektronik','pcs'),(23,'BRG022','Monitor LED 21\"',1500000.00,'Elektronik','pcs'),(24,'BRG023','Printer Inkjet',850000.00,'Elektronik','pcs'),(25,'BRG024','Scanner',900000.00,'Elektronik','pcs'),(26,'BRG025','Harddisk Eksternal 1TB',950000.00,'Elektronik','pcs'),(27,'BRG026','Laptop',7500000.00,'Elektronik','pcs'),(28,'BRG027','Proyektor',5000000.00,'Elektronik','pcs'),(29,'BRG028','Speaker Bluetooth',300000.00,'Elektronik','pcs'),(30,'BRG029','Kalkulator',15000.00,'Alat Kantor','pcs'),(31,'BRG030','Stempel',10000.00,'Alat Kantor','pcs');
 /*!40000 ALTER TABLE `barang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -59,7 +59,7 @@ CREATE TABLE `inventory` (
   PRIMARY KEY (`id`),
   KEY `inventory_barang_id_fk` (`barang_id`),
   CONSTRAINT `inventory_barang_id_fk` FOREIGN KEY (`barang_id`) REFERENCES `barang` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -68,6 +68,7 @@ CREATE TABLE `inventory` (
 
 LOCK TABLES `inventory` WRITE;
 /*!40000 ALTER TABLE `inventory` DISABLE KEYS */;
+INSERT INTO `inventory` (`id`, `barang_id`, `barang_tersedia`, `barang_terjual`, `barang_masuk`) VALUES (1,1,10,3,13),(2,3,7,3,10);
 /*!40000 ALTER TABLE `inventory` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -226,7 +227,7 @@ CREATE TABLE `suplier` (
   `nomor_telp` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -235,6 +236,7 @@ CREATE TABLE `suplier` (
 
 LOCK TABLES `suplier` WRITE;
 /*!40000 ALTER TABLE `suplier` DISABLE KEYS */;
+INSERT INTO `suplier` (`id`, `kode`, `nama`, `alamat`, `nomor_telp`, `email`) VALUES (1,'123ABC','PT GUNTUR MELEDUK','JL KENANGAN','123','DUAAARR@GMAIL.COM'),(2,'ASDFLJASDF2','PT SIDOMUNCUL','JL KUSUMA NEGARA','4321','SIDOMUNCUL@SIDOMUNCUL.ID'),(3,'SUP001','PT Sumber Rejeki','Jl. Merdeka No. 45, Jakarta','021-1234567','info@sumberrejeki.com'),(4,'SUP002','CV Makmur Jaya','Jl. Kebon Jeruk No. 12, Bandung','022-7654321','contact@makmurjaya.co.id'),(5,'SUP003','UD Sukses Selalu','Jl. Sudirman No. 89, Surabaya','031-9876543','sales@suksesselalu.com'),(6,'SUP004','PT Maju Bersama','Jl. Malioboro No. 30, Yogyakarta','0274-4567890','support@majubersama.com'),(7,'SUP005','CV Tumbuh Sejahtera','Jl. Diponegoro No. 25, Semarang','024-3344556','info@tumbuhsejahtera.com'),(8,'SUP006','PT Sentosa Abadi','Jl. Gatot Subroto No. 100, Medan','061-1239876','admin@sentosaabadi.com'),(9,'SUP007','UD Berkah Abadi','Jl. Ahmad Yani No. 67, Makassar','0411-7651234','contact@berkahabadi.co.id'),(10,'SUP008','PT Gemilang Jaya','Jl. Gajah Mada No. 5, Bali','0361-9871234','info@gemilangjaya.com'),(11,'SUP009','CV Lancar Terus','Jl. Pemuda No. 77, Malang','0341-4321987','support@lancarterus.com'),(12,'SUP010','UD Mandiri Sentosa','Jl. Dipatiukur No. 3, Bogor','0251-9876543','info@mandirisentosa.com'),(13,'SUP011','PT Cahaya Abadi','Jl. Diponegoro No. 101, Jakarta','021-1111222','info@cahayaabadi.com'),(14,'SUP012','CV Amanah Jaya','Jl. Sumatra No. 55, Bandung','022-3333444','contact@amanahjaya.co.id'),(15,'SUP013','UD Harmoni Sejahtera','Jl. Pahlawan No. 23, Surabaya','031-5555666','sales@harmonisejahtera.com'),(16,'SUP014','PT Unggul Prima','Jl. Kebon Sirih No. 60, Yogyakarta','0274-7777888','support@unggulprima.com'),(17,'SUP015','CV Rajawali Nusantara','Jl. Letjen Suprapto No. 18, Semarang','024-9999000','info@rajawalinusantara.com'),(18,'SUP016','PT Satria Mandiri','Jl. Dr. Sutomo No. 34, Medan','061-8888777','admin@satriamandiri.com'),(19,'SUP017','UD Bersama Maju','Jl. Ahmad Yani No. 98, Makassar','0411-6666555','contact@bersamamaju.co.id'),(20,'SUP018','PT Jaya Abadi','Jl. Teuku Umar No. 70, Bali','0361-4444333','info@jayaabadi.com'),(21,'SUP019','CV Anugerah Sejati','Jl. Diponegoro No. 12, Malang','0341-8888666','support@anugerahsejati.com'),(22,'SUP020','UD Mulia Bersama','Jl. Ir. H. Juanda No. 5, Bogor','0251-7777666','info@muliabersama.com'),(23,'SUP021','PT Sukses Bersama','Jl. Kartini No. 10, Jakarta','021-2222333','info@suksesbersama.com'),(24,'SUP022','CV Utama Sejahtera','Jl. Veteran No. 40, Bandung','022-4444555','contact@utamasejahtera.co.id'),(25,'SUP023','UD Sentosa Sejahtera','Jl. Kartini No. 80, Surabaya','031-6666777','sales@sentosasejahtera.com'),(26,'SUP024','PT Berkah Mandiri','Jl. Kenari No. 7, Yogyakarta','0274-9999111','support@berkahmandiri.com'),(27,'SUP025','CV Prima Sentosa','Jl. Letjend Sutoyo No. 22, Semarang','024-1111333','info@primasentosa.com');
 /*!40000 ALTER TABLE `suplier` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -247,4 +249,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-27 21:02:52
+-- Dump completed on 2024-05-30 21:11:48
