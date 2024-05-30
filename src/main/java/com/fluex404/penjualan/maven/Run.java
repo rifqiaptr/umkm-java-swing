@@ -7,7 +7,6 @@ package com.fluex404.penjualan.maven;
 import com.fluex404.penjualan.maven.Config.Koneksi;
 import com.fluex404.penjualan.maven.Main.FormLogin;
 import com.fluex404.penjualan.maven.Main.MenuUtama;
-import java.sql.Connection;
 
 /**
  *
