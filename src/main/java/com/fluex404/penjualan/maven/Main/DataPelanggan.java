@@ -4,14 +4,19 @@ import com.fluex404.penjualan.maven.Config.Koneksi;
 import java.awt.Color;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.view.JasperViewer;
+import net.sf.jasperreports.engine.util.JRLoader;
 
 public class DataPelanggan extends javax.swing.JPanel {
     private final Connection conn;
@@ -106,6 +111,11 @@ public class DataPelanggan extends javax.swing.JPanel {
         btnExport.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         btnExport.setForeground(new java.awt.Color(255, 255, 255));
         btnExport.setText("EXPORT");
+        btnExport.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnExportMouseClicked(evt);
+            }
+        });
 
         tblData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -313,6 +323,36 @@ public class DataPelanggan extends javax.swing.JPanel {
         getData();
         nonAktifButton();
     }//GEN-LAST:event_btnDeleteMouseClicked
+
+    private void btnExportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExportMouseClicked
+        try {
+            // Path to the .jrxml template file
+            String jrxmlFilePath = "C:\\Users\\ASUS\\JaspersoftWorkspace\\MyReports\\report_template.jrxml";
+
+            // Compile the .jrxml file into JasperReport object
+            JasperReport jasperReport = JasperCompileManager.compileReport(jrxmlFilePath);
+
+            // Parameters for report (if any)
+            HashMap<String, Object> parameters = new HashMap<>();
+            parameters.put("ReportTitle", "Data Pelanggan");
+
+            // Fill the report with data
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, conn);
+
+            // Update this to a valid path on your system
+            String pdfFilePath = "C:\\Users\\ASUS\\JaspersoftWorkspace\\MyReports\\exported_report.pdf";
+            JasperExportManager.exportReportToPdfFile(jasperPrint, pdfFilePath);
+
+            // View the report in JasperViewer
+            JasperViewer.viewReport(jasperPrint, false); // Ensure only one viewer is opened
+
+            JOptionPane.showMessageDialog(this, "Laporan berhasil diekspor ke PDF");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+        }
+    }//GEN-LAST:event_btnExportMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;
