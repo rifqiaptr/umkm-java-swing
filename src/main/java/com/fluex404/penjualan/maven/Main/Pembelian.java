@@ -495,6 +495,9 @@ public class Pembelian extends javax.swing.JPanel {
             AutoCompleteDecorator.decorate(TBKodeBarang);
         
             addBarang.pack();
+            
+            // entahlah
+            
             addBarang.setVisible(true);
         } catch(Exception e){
             JOptionPane.showConfirmDialog(this, e.getMessage());
