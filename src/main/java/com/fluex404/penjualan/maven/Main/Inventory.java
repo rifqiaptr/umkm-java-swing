@@ -2,22 +2,23 @@ package com.fluex404.penjualan.maven.Main;
 
 import com.fluex404.penjualan.maven.Config.Koneksi;
 import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class Inventory extends javax.swing.JPanel {
     private final Connection conn;
@@ -25,7 +26,6 @@ public class Inventory extends javax.swing.JPanel {
         initComponents();
         
         conn = Koneksi.getConnection();
-        setTableModel();
         loadData();
         
         placeHolder(txtSearch, "Search Barang");
@@ -58,9 +58,9 @@ public class Inventory extends javax.swing.JPanel {
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Inventory_30px.png"))); // NOI18N
 
         txtSearch.setFont(new java.awt.Font("SansSerif", 2, 14)); // NOI18N
-        txtSearch.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtSearchMouseClicked(evt);
+        txtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtSearchKeyPressed(evt);
             }
         });
 
@@ -68,9 +68,9 @@ public class Inventory extends javax.swing.JPanel {
         btnExport.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         btnExport.setForeground(new java.awt.Color(255, 255, 255));
         btnExport.setText("EXPORT");
-        btnExport.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExportActionPerformed(evt);
+        btnExport.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnExportMouseClicked(evt);
             }
         });
 
@@ -82,7 +82,7 @@ public class Inventory extends javax.swing.JPanel {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Nama Barang", "Kode Barang", "Harga Beli", "Barang Tersedia", "Barang Terjual", "Barang Masuk"
+                "Nama Barang", "Kode Barang", "Harga Jual", "Barang Tersedia", "Barang Terjual", "Barang Masuk"
             }
         ));
         tblData.setRowHeight(30);
@@ -128,13 +128,34 @@ public class Inventory extends javax.swing.JPanel {
         add(panelMain, "card2");
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnExportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnExportActionPerformed
+    private void btnExportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExportMouseClicked
+        try {
+            // Parameters for report (if any)
+            HashMap<String, Object> parameters = new HashMap<>();
+            parameters.put("ReportTitle", "Data Inventory");
+            
+            //load report location
+            InputStream in = this.getClass().getClassLoader().getResourceAsStream("./report/inventory_report.jrxml");
+            
+            //compile report
+            JasperReport jasperReport = (JasperReport) JasperCompileManager.compileReport(in);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, conn);
+            
+            //view report to UI
+            JasperViewer.viewReport(jasperPrint, false);
+            
 
-    private void txtSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtSearchMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSearchMouseClicked
+            JOptionPane.showMessageDialog(this, "Laporan berhasil diekspor ke PDF");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+        }
+    }//GEN-LAST:event_btnExportMouseClicked
+
+    private void txtSearchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyPressed
+        searchData();
+    }//GEN-LAST:event_txtSearchKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -174,50 +195,42 @@ public class Inventory extends javax.swing.JPanel {
     private void loadData() {
         getData((DefaultTableModel) tblData.getModel());
     }
-    
-    private void showPanel() {
-        panelMain.removeAll();
-        panelMain.add(new Inventory());
-        panelMain.repaint();
-        panelMain.revalidate();
-    }
-    
-    private void resetForm() {
-        txtSearch.setText("");
-    }
-    
-    private void setTableModel() {
-        DefaultTableModel model = (DefaultTableModel) tblData.getModel();
-        model.addColumn("Nama Barang");
-        model.addColumn("Kode Barang");
-        model.addColumn("Harga Beli");
-        model.addColumn("Barang Tersedia");
-        model.addColumn("Barang Terjual");
-        model.addColumn("Barang Masuk");
-    }
 
     private void getData(DefaultTableModel model) {
         model.setRowCount(0);
-        
+
         try {
-            String sql = "SELECT * FROM inventory";
+            // Query gabungan dengan INNER JOIN dan kondisi LIKE
+            String sql = "SELECT " +
+                            "b.nama, " +
+                            "b.kode, " +
+                            "b.harga_jual, " +
+                            "i.barang_tersedia, " +
+                            "i.barang_terjual, " +
+                            "i.barang_masuk " +
+                         "FROM " +
+                            "barang b " +
+                         "INNER JOIN " +
+                            "inventory i " +
+                         "ON b.id = i.barang_id AND b.nama LIKE '%%'";
+
             try (PreparedStatement st = conn.prepareStatement(sql)) {
                 ResultSet rs = st.executeQuery();
-                
+
                 while (rs.next()) {
                     String namaBarang     = rs.getString("nama");
                     String kodeBarang     = rs.getString("kode");
-                    String hargaBeli      = rs.getString("harga_beli");
+                    String hargaJual      = rs.getString("harga_jual");
                     String barangTersedia = rs.getString("barang_tersedia");
                     String barangTerjual  = rs.getString("barang_terjual");
                     String barangMasuk    = rs.getString("barang_masuk");
-                    
-                    Object[] rowData = {namaBarang, kodeBarang, hargaBeli, barangTersedia, barangTerjual, barangMasuk};
+
+                    // Sesuaikan kolom yang ditambahkan ke dalam rowData dengan kolom yang ada di SELECT
+                    Object[] rowData = {namaBarang, kodeBarang, hargaJual, barangTersedia, barangTerjual, barangMasuk};
                     model.addRow(rowData);
                 }
             }
-        }
-        catch (SQLException e) {
+        } catch (SQLException e) {
             Logger.getLogger(Inventory.class.getName()).log(Level.SEVERE, null, e);
         }
     }
@@ -228,125 +241,39 @@ public class Inventory extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblData.getModel();
         model.setRowCount(0);
 
-        String sql = "SELECT "
-                + "b.kode, "
-                + "b.nama, "
-                + "b.harga_jual, "
-                + "i.barang_terjual, "
-                + "i.barang_terjual, "
-                + "i.barang_masuk \n" +
-                "FROM inventory i\n" +
-                "INNER JOIN barang b on b.id = i.barang_id";
-    }
-    
-    private String setIDAnggota() {
-        String urutan = null;
-        Date now = new Date();
-        SimpleDateFormat noFormat = new SimpleDateFormat("yyMM");
-        String no = noFormat.format(now);
-        
-        String sql = "SELECT RIGHT(ID_Pelanggan, 3) AS Nomor " +
-                     "FROM tbl_pelanggan " +
-                     "WHERE ID_Pelanggan LIKE 'PLG" + no + "%' " +
-                     "ORDER BY ID_Pelanggan DESC " +
-                     "LIMIT 1";
-        
+        String sql = "SELECT " +
+                        "b.nama, " +
+                        "b.kode, " +
+                        "b.harga_jual, " +
+                        "i.barang_tersedia, " +
+                        "i.barang_terjual, " +
+                        "i.barang_masuk " +
+                     "FROM " +
+                        "barang b " +
+                     "INNER JOIN " +
+                        "inventory i " +
+                     "ON b.id = i.barang_id " +
+                     "WHERE b.nama LIKE ? OR b.kode LIKE ?";
+
         try (PreparedStatement st = conn.prepareStatement(sql)) {
+            String searchPattern = "%" + kataKunci + "%";
+            st.setString(1, searchPattern);
+            st.setString(2, searchPattern);
             ResultSet rs = st.executeQuery();
-            
-            if (rs.next()) {
-                int nomor = Integer.parseInt(rs.getString("Nomor")) + 1;
-                urutan = "PLG" + no + String.format("%03d", nomor);
-            }
-            else {
-                urutan = "PLG" + no + "001";
-            }
-        }
-        catch (SQLException e) {
-            java.util.logging.Logger.getLogger(Inventory.class.getName()).log(Level.SEVERE, null, e);
-        }
-        return urutan;
-    }
 
-//    private void dataTable() {
-//        int row = tblData.getSelectedRow();
-//        jLabel6.setText("Perbarui Data Pelanggan");
-//        
-//        txtSearch.setText(tblData.getValueAt(row, 0).toString());
-//        txtNama.setText(tblData.getValueAt(row, 1).toString());
-//        txtKode.setText(tblData.getValueAt(row, 2).toString());
-//        txtHargaBeli.setText(tblData.getValueAt(row, 3).toString());
-//        txtBarangTersedia.setText(tblData.getValueAt(row, 4).toString());
-//        txtBarangTerjual.setText(tblData.getValueAt(row, 5).toString());
-//        txtBarangMasuk.setText(tblData.getValueAt(row, 6).toString());
-//    }
-    
-//    private void updateData() {
-//                    String namaBarang     = rs.getString("nama");
-//                    String kodeBarang     = rs.getString("kode");
-//                    String hargaBeli      = rs.getString("harga_beli");
-//                    String barangTersedia = rs.getString("barang_tersedia");
-//                    String barangTerjual  = rs.getString("barang_terjual");
-//                    String barangMasuk    = rs.getString("barang_masuk");
-//        
-//        if (kodeBarang.isEmpty() || namaBarang.isEmpty() || hargaJual.isEmpty() || kategoriBarang.isEmpty() || satuanBarang.isEmpty()) {
-//            JOptionPane.showMessageDialog(this, "Semua kolom harus terisi!", "Validasi", JOptionPane.ERROR_MESSAGE);
-//            return;
-//        }
-//        
-//        try {
-//            String sql = "UPDATE barang SET nama=?, harga_jual=?, kategori=?, satuan_barang=? WHERE kode=?";
-//            try (PreparedStatement st = conn.prepareStatement(sql)) {
-//                st.setString(1, namaBarang);
-//                st.setString(2, kodeBarang);
-//                st.setString(3, hargaBeli);
-//                st.setString(4,barangTersedia);
-//                st.setString(5, barangTerjual);
-//                st.setString(6,barangMasuk);
-//                
-//                int rowUpdated = st.executeUpdate();
-//                if (rowUpdated > 0) {
-//                    JOptionPane.showMessageDialog(this, "Data Berhasil Diperbarui");
-//                    resetForm();
-//                    loadData();
-//                    showPanel();
-//                }
-//            }
-//        }
-//        catch (SQLException e) {
-//            Logger.getLogger(Inventory.class.getName()).log(Level.SEVERE, null, e);
-//        }
-//    }
+            while (rs.next()) {
+                String namaBarang     = rs.getString("nama");
+                String kodeBarang     = rs.getString("kode");
+                String hargaJual      = rs.getString("harga_jual");
+                String barangTersedia = rs.getString("barang_tersedia");
+                String barangTerjual  = rs.getString("barang_terjual");
+                String barangMasuk    = rs.getString("barang_masuk");
 
-    private void deleteData() {
-        int selectedRow = tblData.getSelectedRow();
-        int confirm = JOptionPane.showConfirmDialog(this, 
-                "Apakah yakin ingin menghapus data ini?", 
-                "Konfirmasi Hapus Data", 
-                JOptionPane.YES_NO_OPTION);
-        
-        if (confirm == JOptionPane.YES_OPTION) {
-            String id = tblData.getValueAt(selectedRow, 0).toString();
-            try {
-                String sql = "DELETE FROM barang WHERE kode=?";
-                try (PreparedStatement st = conn.prepareStatement(sql)) {
-                    st.setString(1, id);
-                    
-                    int rowDeleted = st.executeUpdate();
-                    if (rowDeleted > 0) {
-                        JOptionPane.showMessageDialog(this, "Data Berhasil Dihapus");
-                    }
-                    else {
-                        JOptionPane.showMessageDialog(this, "Data Gagal Dihapus");
-                    }   
-                }
+                Object[] rowData = {namaBarang, kodeBarang, hargaJual, barangTersedia, barangTerjual, barangMasuk};
+                model.addRow(rowData);
             }
-            catch (Exception e) {
-                Logger.getLogger(Inventory.class.getName()).log(Level.SEVERE, null, e);
-            }
+        } catch (SQLException e) {
+            Logger.getLogger(Inventory.class.getName()).log(Level.SEVERE, null, e);
         }
-        resetForm();
-        loadData();
-        showPanel();
     }
 }

@@ -2,7 +2,7 @@
 <!-- Created with Jaspersoft Studio version 6.21.2.final using JasperReports Library version 6.21.2-8434a0bd7c3bbc37cbf916f2968d35e4b165821a  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report_template" pageWidth="595" pageHeight="842" whenNoDataType="NoPages" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a9b6c08e-7a52-4cc8-91ba-4c3d445f232d">
 	<queryString>
-		<![CDATA[SELECT kode, nama, alamat, nomor_telp, email FROM pelanggan]]>
+		<![CDATA[SELECT kode, nama, alamat, nomor_telp, email FROM suplier]]>
 	</queryString>
 	<field name="kode" class="java.lang.String"/>
 	<field name="nama" class="java.lang.String"/>
@@ -16,7 +16,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="18" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Data Pelanggan]]></text>
+				<text><![CDATA[Data Supplier]]></text>
 			</staticText>
 		</band>
 	</title>

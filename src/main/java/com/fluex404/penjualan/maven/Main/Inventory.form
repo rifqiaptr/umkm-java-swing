@@ -111,7 +111,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="txtSearchMouseClicked"/>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtSearchKeyPressed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnExport">
@@ -128,7 +128,7 @@
                 <Property name="text" type="java.lang.String" value="EXPORT"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnExportActionPerformed"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnExportMouseClicked"/>
               </Events>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -144,7 +144,7 @@
                       <Table columnCount="6" rowCount="4">
                         <Column editable="true" title="Nama Barang" type="java.lang.Object"/>
                         <Column editable="true" title="Kode Barang" type="java.lang.Object"/>
-                        <Column editable="true" title="Harga Beli" type="java.lang.Object"/>
+                        <Column editable="true" title="Harga Jual" type="java.lang.Object"/>
                         <Column editable="true" title="Barang Tersedia" type="java.lang.Object"/>
                         <Column editable="true" title="Barang Terjual" type="java.lang.Object"/>
                         <Column editable="true" title="Barang Masuk" type="java.lang.Object"/>

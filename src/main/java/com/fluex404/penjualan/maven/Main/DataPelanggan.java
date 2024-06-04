@@ -4,12 +4,7 @@ import com.fluex404.penjualan.maven.Config.Koneksi;
 import java.awt.Color;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,9 +14,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.view.JasperViewer;
-import net.sf.jasperreports.engine.util.JRLoader;
 
 public class DataPelanggan extends javax.swing.JPanel {
     private final Connection conn;
@@ -331,7 +328,6 @@ public class DataPelanggan extends javax.swing.JPanel {
 
     private void btnExportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExportMouseClicked
         try {
-            
             // Parameters for report (if any)
             HashMap<String, Object> parameters = new HashMap<>();
             parameters.put("ReportTitle", "Data Pelanggan");

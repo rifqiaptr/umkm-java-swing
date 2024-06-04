@@ -4,14 +4,21 @@ import com.fluex404.penjualan.maven.Config.Koneksi;
 import java.awt.Color;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class DataSupplier extends javax.swing.JPanel {
     private final Connection conn;
@@ -106,6 +113,11 @@ public class DataSupplier extends javax.swing.JPanel {
         btnExport.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         btnExport.setForeground(new java.awt.Color(255, 255, 255));
         btnExport.setText("EXPORT");
+        btnExport.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnExportMouseClicked(evt);
+            }
+        });
 
         tblData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -313,6 +325,31 @@ public class DataSupplier extends javax.swing.JPanel {
         getData();
         nonAktifButton();
     }//GEN-LAST:event_btnDeleteMouseClicked
+
+    private void btnExportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExportMouseClicked
+        try {
+            // Parameters for report (if any)
+            HashMap<String, Object> parameters = new HashMap<>();
+            parameters.put("ReportTitle", "Data Supplier");
+            
+            //load report location
+            InputStream in = this.getClass().getClassLoader().getResourceAsStream("./report/supplier_report.jrxml");
+            
+            //compile report
+            JasperReport jasperReport = (JasperReport) JasperCompileManager.compileReport(in);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, conn);
+            
+            //view report to UI
+            JasperViewer.viewReport(jasperPrint, false);
+            
+
+            JOptionPane.showMessageDialog(this, "Laporan berhasil diekspor ke PDF");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+        }
+    }//GEN-LAST:event_btnExportMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
