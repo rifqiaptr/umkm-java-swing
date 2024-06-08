@@ -53,7 +53,7 @@ DROP TABLE IF EXISTS `inventory`;
 SET @saved_cs_client     = @@character_set_client;
 SET character_set_client = utf8;
 /*!50001 CREATE VIEW `inventory` AS SELECT
- 1 AS `id`,
+ 1 AS `barang_id`,
   1 AS `barang_masuk`,
   1 AS `barang_terjual`,
   1 AS `barang_tersedia` */;
@@ -244,7 +244,7 @@ UNLOCK TABLES;
 /*!50001 SET collation_connection      = utf8mb4_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `inventory` AS select `b`.`id` AS `id`,ifnull((select sum(`pb`.`jumlah_barang`) AS `barang_masuk` from `pembelian_barang` `pb` where `pb`.`barang_id` = `b`.`id` group by `pb`.`barang_id`),0) AS `barang_masuk`,ifnull((select sum(`pm`.`jumlah_barang`) AS `barang_keluar` from `penjualan_barang` `pm` where `pm`.`barang_id` = `b`.`id` group by `pm`.`barang_id`),0) AS `barang_terjual`,ifnull((select sum(`pb`.`jumlah_barang`) AS `barang_masuk` from `pembelian_barang` `pb` where `pb`.`barang_id` = `b`.`id` group by `pb`.`barang_id`),0) - ifnull((select sum(`pm`.`jumlah_barang`) AS `barang_keluar` from `penjualan_barang` `pm` where `pm`.`barang_id` = `b`.`id` group by `pm`.`barang_id`),0) AS `barang_tersedia` from `barang` `b` */;
+/*!50001 VIEW `inventory` AS select `b`.`id` AS `barang_id`,ifnull((select sum(`pb`.`jumlah_barang`) AS `barang_masuk` from `pembelian_barang` `pb` where `pb`.`barang_id` = `b`.`id` group by `pb`.`barang_id`),0) AS `barang_masuk`,ifnull((select sum(`pm`.`jumlah_barang`) AS `barang_keluar` from `penjualan_barang` `pm` where `pm`.`barang_id` = `b`.`id` group by `pm`.`barang_id`),0) AS `barang_terjual`,ifnull((select sum(`pb`.`jumlah_barang`) AS `barang_masuk` from `pembelian_barang` `pb` where `pb`.`barang_id` = `b`.`id` group by `pb`.`barang_id`),0) - ifnull((select sum(`pm`.`jumlah_barang`) AS `barang_keluar` from `penjualan_barang` `pm` where `pm`.`barang_id` = `b`.`id` group by `pm`.`barang_id`),0) AS `barang_tersedia` from `barang` `b` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -258,4 +258,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-06-08 12:25:08
+-- Dump completed on 2024-06-08 12:28:28
