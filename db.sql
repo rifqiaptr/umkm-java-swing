@@ -75,7 +75,7 @@ CREATE TABLE `pelanggan` (
   `email` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `pelanggan_pk` (`kode`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -84,7 +84,7 @@ CREATE TABLE `pelanggan` (
 
 LOCK TABLES `pelanggan` WRITE;
 /*!40000 ALTER TABLE `pelanggan` DISABLE KEYS */;
-INSERT INTO `pelanggan` (`id`, `kode`, `nama`, `alamat`, `nomor_telp`, `email`) VALUES (1,'123ABC','Isa','Jl. Kenangan','08123','isa@gmail.com');
+INSERT INTO `pelanggan` (`id`, `kode`, `nama`, `alamat`, `nomor_telp`, `email`) VALUES (1,'123ABC','Isa','Jl. Kenangan','08123','isa@gmail.com'),(3,'123','yuli','kalisari','085337958038','yulianaaa.com');
 /*!40000 ALTER TABLE `pelanggan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -104,7 +104,7 @@ CREATE TABLE `pembelian` (
   UNIQUE KEY `pembelian_pk` (`nomor_transaksi`),
   KEY `pembelian_suplier_id_fk` (`suplier_id`),
   CONSTRAINT `pembelian_suplier_id_fk` FOREIGN KEY (`suplier_id`) REFERENCES `suplier` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -113,7 +113,7 @@ CREATE TABLE `pembelian` (
 
 LOCK TABLES `pembelian` WRITE;
 /*!40000 ALTER TABLE `pembelian` DISABLE KEYS */;
-INSERT INTO `pembelian` (`id`, `nomor_transaksi`, `tanggal_transaksi`, `suplier_id`) VALUES (4,'TRXHUPC0001','2024-06-08 00:00:00',4),(7,'TRXWNQZ0003','2024-06-20 00:00:00',3),(9,'TRXKBIL0005','2024-06-08 00:00:00',4);
+INSERT INTO `pembelian` (`id`, `nomor_transaksi`, `tanggal_transaksi`, `suplier_id`) VALUES (4,'TRXHUPC0001','2024-06-08 00:00:00',4),(7,'TRXWNQZ0003','2024-06-20 00:00:00',3),(9,'TRXKBIL0005','2024-06-08 00:00:00',4),(11,'TRXKKHN0007','2024-06-15 00:00:00',6),(13,'TRXCVMM0008','2024-06-08 00:00:00',3),(14,'TRXSQDH0009','2024-06-15 00:00:00',3),(16,'TRXOBWM0010','2024-06-14 00:00:00',4);
 /*!40000 ALTER TABLE `pembelian` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -134,7 +134,7 @@ CREATE TABLE `pembelian_barang` (
   KEY `pembelian_barang_pembelian_id_fk` (`pembelian_id`),
   CONSTRAINT `pembelian_barang___fk` FOREIGN KEY (`barang_id`) REFERENCES `barang` (`id`),
   CONSTRAINT `pembelian_barang_pembelian_id_fk` FOREIGN KEY (`pembelian_id`) REFERENCES `pembelian` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -143,7 +143,7 @@ CREATE TABLE `pembelian_barang` (
 
 LOCK TABLES `pembelian_barang` WRITE;
 /*!40000 ALTER TABLE `pembelian_barang` DISABLE KEYS */;
-INSERT INTO `pembelian_barang` (`id`, `pembelian_id`, `barang_id`, `jumlah_barang`) VALUES (1,4,4,4),(2,4,7,7),(5,7,4,9),(6,7,8,7),(7,9,3,9),(8,9,8,3);
+INSERT INTO `pembelian_barang` (`id`, `pembelian_id`, `barang_id`, `jumlah_barang`) VALUES (1,4,4,4),(2,4,7,7),(5,7,4,9),(6,7,8,7),(7,9,3,9),(8,9,8,3),(9,11,5,12),(10,13,5,3),(11,14,4,2),(12,16,4,3);
 /*!40000 ALTER TABLE `pembelian_barang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -160,9 +160,10 @@ CREATE TABLE `penjualan` (
   `tanggal_transaksi` datetime DEFAULT NULL,
   `pelanggan_id` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
+  UNIQUE KEY `penjualan_pk` (`nomor_transaksi`),
   KEY `penjualan_pelanggan_id_fk` (`pelanggan_id`),
   CONSTRAINT `penjualan_pelanggan_id_fk` FOREIGN KEY (`pelanggan_id`) REFERENCES `pelanggan` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -171,6 +172,7 @@ CREATE TABLE `penjualan` (
 
 LOCK TABLES `penjualan` WRITE;
 /*!40000 ALTER TABLE `penjualan` DISABLE KEYS */;
+INSERT INTO `penjualan` (`id`, `nomor_transaksi`, `tanggal_transaksi`, `pelanggan_id`) VALUES (1,'TRXBROM0001','2024-06-08 00:00:00',1),(2,'TRXIAVT0003','2024-06-09 00:00:00',3);
 /*!40000 ALTER TABLE `penjualan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -191,7 +193,7 @@ CREATE TABLE `penjualan_barang` (
   KEY `penjualan_barang_penjualan_id_fk` (`penjualan_id`),
   CONSTRAINT `penjualan_barang_barang_id_fk` FOREIGN KEY (`barang_id`) REFERENCES `barang` (`id`),
   CONSTRAINT `penjualan_barang_penjualan_id_fk` FOREIGN KEY (`penjualan_id`) REFERENCES `penjualan` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -200,6 +202,7 @@ CREATE TABLE `penjualan_barang` (
 
 LOCK TABLES `penjualan_barang` WRITE;
 /*!40000 ALTER TABLE `penjualan_barang` DISABLE KEYS */;
+INSERT INTO `penjualan_barang` (`id`, `penjualan_id`, `barang_id`, `jumlah_barang`) VALUES (1,1,4,2),(2,1,5,2),(3,2,5,2);
 /*!40000 ALTER TABLE `penjualan_barang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -258,4 +261,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-06-08 12:28:28
+-- Dump completed on 2024-06-08 12:58:30
