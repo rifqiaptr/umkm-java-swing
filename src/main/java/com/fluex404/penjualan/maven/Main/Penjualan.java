@@ -63,6 +63,10 @@ public class Penjualan extends javax.swing.JPanel {
         } catch(Exception e){
             
         }
+        
+        // delete all row in jtable
+        DefaultTableModel model = (DefaultTableModel) txtTabel.getModel();
+        model.setRowCount(0);
     }
 
     @SuppressWarnings("unchecked")
@@ -641,6 +645,7 @@ public class Penjualan extends javax.swing.JPanel {
             0 == txtTabel.getRowCount()
         ) {
             JOptionPane.showMessageDialog(this, "data kurang lengkap");
+            return;
         }
         
         // insert data to database
@@ -663,7 +668,7 @@ public class Penjualan extends javax.swing.JPanel {
                     );
                     """);
             ps.setString(1, trxNo);
-            ps.setDate(2, (java.sql.Date) trxTgl);
+            ps.setDate(2, new java.sql.Date(trxTgl.getTime()) );
             ps.setString(3, suplierKode);
             
             ps.execute();
@@ -715,7 +720,8 @@ public class Penjualan extends javax.swing.JPanel {
             con.commit();
         } catch(Exception e){
             e.printStackTrace();
-            JOptionPane.showMessageDialog(this, "gagal simpan");
+            JOptionPane.showMessageDialog(this, "gagal simpan karna "+e.getMessage());
+            return;
         }
         
         // pop berhasil
