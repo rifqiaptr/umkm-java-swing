@@ -194,11 +194,6 @@ public class MenuUtama extends javax.swing.JFrame {
 
         btn_barang.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btn_barang.setText("Data Barang");
-        btn_barang.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_barangMouseClicked(evt);
-            }
-        });
 
         javax.swing.GroupLayout pn_btnBarangLayout = new javax.swing.GroupLayout(pn_btnBarang);
         pn_btnBarang.setLayout(pn_btnBarangLayout);
@@ -538,10 +533,6 @@ public class MenuUtama extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         setExtendedState(MenuUtama.MAXIMIZED_BOTH);
     }//GEN-LAST:event_formWindowOpened
-
-    private void btn_barangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_barangMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_barangMouseClicked
 
     /**
      * @param args the command line arguments
