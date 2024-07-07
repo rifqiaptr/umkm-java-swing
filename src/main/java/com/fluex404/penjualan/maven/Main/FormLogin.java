@@ -1,7 +1,6 @@
 package com.fluex404.penjualan.maven.Main;
 
 import com.fluex404.penjualan.maven.Config.Koneksi;
-import com.fluex404.penjualan.maven.Config.Koneksi;
 import java.sql.Connection;
 import java.awt.Color;
 import java.awt.event.KeyAdapter;
@@ -14,6 +13,8 @@ import java.io.UnsupportedEncodingException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -39,6 +40,9 @@ public class FormLogin extends javax.swing.JFrame {
         t_username = new javax.swing.JTextField();
         t_password = new javax.swing.JPasswordField();
         btn_login = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        btn_cancel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -53,7 +57,7 @@ public class FormLogin extends javax.swing.JFrame {
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(204, 255, 204));
 
         jLabel4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel4.setText("Username");
@@ -68,36 +72,70 @@ public class FormLogin extends javax.swing.JFrame {
         btn_login.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btn_login.setText("LOGIN");
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8_online_store_99px.png"))); // NOI18N
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setText("Welcome!");
+
+        btn_cancel.setBackground(new java.awt.Color(204, 255, 204));
+        btn_cancel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8_multiplication_30px.png"))); // NOI18N
+        btn_cancel.setBorder(null);
+        btn_cancel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_cancelMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(225, 225, 225)
+                .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(t_username, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
-                    .addComponent(btn_login)
-                    .addComponent(t_password))
-                .addContainerGap(21, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 231, Short.MAX_VALUE)
+                        .addComponent(btn_cancel))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(t_username)
+                            .addComponent(btn_login)
+                            .addComponent(t_password, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(t_username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(t_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(60, 60, 60)
-                .addComponent(btn_login)
-                .addContainerGap(18, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(18, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btn_cancel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(t_username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(t_password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_login))
+                    .addComponent(jLabel2))
+                .addGap(22, 22, 22))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -126,6 +164,11 @@ public class FormLogin extends javax.swing.JFrame {
         this.setLocation(x - xx, y - xy);
     }//GEN-LAST:event_formMouseDragged
 
+    private void btn_cancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_cancelMouseClicked
+        dispose();
+        System.exit(0);
+    }//GEN-LAST:event_btn_cancelMouseClicked
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -135,7 +178,10 @@ public class FormLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_cancel;
     private javax.swing.JButton btn_login;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
@@ -193,23 +239,28 @@ public class FormLogin extends javax.swing.JFrame {
         return valid;
     }
     
-    private boolean checkLogin(String username, String password) {
+    private Map<String, String> checkLogin(String username, String password) {
+        Map<String, String> result = new HashMap<>();
+        
         if (conn != null) {
             try {
-                String sql = "SELECT * FROM tbl_user WHERE Username=? AND Password=?";
+                String sql = "SELECT * FROM admin WHERE username=? AND password=?";
                 PreparedStatement st = conn.prepareStatement(sql);
                 st.setString(1, username);
                 st.setString(2, password);
+                
                 ResultSet rs = st.executeQuery();
                 if (rs.next()) {
-                    return true;
+                    result.put("id", rs.getString("id"));
+                    result.put("nama_user", rs.getString("nama_user"));
+                    return result;
                 }
             }
             catch (SQLException e) {
                 e.printStackTrace();
             }
         }
-        return false;
+        return null; //Mengembalikan null jika login gagal
     }
     
     private void prosesLogin() {
@@ -217,14 +268,19 @@ public class FormLogin extends javax.swing.JFrame {
             String username = t_username.getText();
             String password = new String(t_password.getPassword());
             String hashedPassword = getMD5java(password);
-            
-            if (checkLogin(username, hashedPassword)) {
-                MenuUtama mn = new MenuUtama();
+
+            Map<String, String> loginResult = checkLogin(username, hashedPassword);
+
+            if (loginResult != null && !loginResult.isEmpty()) {
+                String userID = loginResult.get("id");
+                String namaUser = loginResult.get("nama_user");
+
+                MenuUtama mn = new MenuUtama(userID, namaUser);  // Mengirim nilai user_id ke MenuUtama
                 mn.setVisible(true);
                 mn.revalidate();
-                
+
                 dispose();
-            }
+            } 
             else {
                JOptionPane.showMessageDialog(this, "Username dan Password Salah", 
                        "Pesan", JOptionPane.INFORMATION_MESSAGE);
