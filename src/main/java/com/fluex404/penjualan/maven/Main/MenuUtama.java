@@ -78,7 +78,7 @@ public class MenuUtama extends javax.swing.JFrame {
         pn_kiri.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jLabel1.setText("UMKM");
+        jLabel1.setText("INVENTORY");
 
         jLabel2.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Shop_50px.png"))); // NOI18N
