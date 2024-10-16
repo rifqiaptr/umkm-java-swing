@@ -330,15 +330,15 @@ public class Performance extends javax.swing.JPanel {
                 barangKeluar = rs.getString("barang_keluar");
             }
             
-            if(!jumlahBarang.isBlank()){
+            if(null != jumlahBarang && !jumlahBarang.isBlank()){
                 dataBarangTxt.setText(jumlahBarang);
             }
             
-            if(!barangMasuk.isBlank()){
+            if(null != barangMasuk && !barangMasuk.isBlank()){
                 barangMasukTxt.setText(barangMasuk);
             }
             
-            if(!barangKeluar.isBlank()){
+            if(null != barangKeluar && !barangKeluar.isBlank()){
                 barangKeluarTxt.setText(barangKeluar);
             }
             
