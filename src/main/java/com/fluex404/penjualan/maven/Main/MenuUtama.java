@@ -59,6 +59,26 @@ public class MenuUtama extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         btn_performance = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        pn_btnPerformance1 = new javax.swing.JPanel();
+        pn_line9 = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        btn_performance1 = new javax.swing.JLabel();
+        pn_btnPerformance2 = new javax.swing.JPanel();
+        pn_line10 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        btn_performance2 = new javax.swing.JLabel();
+        pn_btnPerformance3 = new javax.swing.JPanel();
+        pn_line11 = new javax.swing.JPanel();
+        jLabel16 = new javax.swing.JLabel();
+        btn_performance3 = new javax.swing.JLabel();
+        pn_btnPerformance4 = new javax.swing.JPanel();
+        pn_line12 = new javax.swing.JPanel();
+        jLabel17 = new javax.swing.JLabel();
+        btn_performance4 = new javax.swing.JLabel();
+        pn_btnPerformance5 = new javax.swing.JPanel();
+        pn_line13 = new javax.swing.JPanel();
+        jLabel18 = new javax.swing.JLabel();
+        btn_performance5 = new javax.swing.JLabel();
         pn_kanan = new javax.swing.JPanel();
         pn_dasar = new javax.swing.JPanel();
         pn_utama = new javax.swing.JPanel();
@@ -452,6 +472,261 @@ public class MenuUtama extends javax.swing.JFrame {
         jLabel13.setForeground(new java.awt.Color(153, 153, 153));
         jLabel13.setText("LAPORAN");
 
+        pn_btnPerformance1.setBackground(new java.awt.Color(255, 255, 255));
+
+        pn_line9.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout pn_line9Layout = new javax.swing.GroupLayout(pn_line9);
+        pn_line9.setLayout(pn_line9Layout);
+        pn_line9Layout.setHorizontalGroup(
+            pn_line9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 5, Short.MAX_VALUE)
+        );
+        pn_line9Layout.setVerticalGroup(
+            pn_line9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 35, Short.MAX_VALUE)
+        );
+
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-report-30.png"))); // NOI18N
+
+        btn_performance1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btn_performance1.setText("Lap. Pelanggan");
+
+        javax.swing.GroupLayout pn_btnPerformance1Layout = new javax.swing.GroupLayout(pn_btnPerformance1);
+        pn_btnPerformance1.setLayout(pn_btnPerformance1Layout);
+        pn_btnPerformance1Layout.setHorizontalGroup(
+            pn_btnPerformance1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_btnPerformance1Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(jLabel14)
+                .addGap(18, 18, 18)
+                .addComponent(btn_performance1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(pn_btnPerformance1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pn_btnPerformance1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(pn_line9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(211, Short.MAX_VALUE)))
+        );
+        pn_btnPerformance1Layout.setVerticalGroup(
+            pn_btnPerformance1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_btnPerformance1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pn_btnPerformance1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                    .addComponent(btn_performance1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+            .addGroup(pn_btnPerformance1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pn_btnPerformance1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(pn_line9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+
+        pn_btnPerformance2.setBackground(new java.awt.Color(255, 255, 255));
+
+        pn_line10.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout pn_line10Layout = new javax.swing.GroupLayout(pn_line10);
+        pn_line10.setLayout(pn_line10Layout);
+        pn_line10Layout.setHorizontalGroup(
+            pn_line10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 5, Short.MAX_VALUE)
+        );
+        pn_line10Layout.setVerticalGroup(
+            pn_line10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 35, Short.MAX_VALUE)
+        );
+
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-report-30.png"))); // NOI18N
+
+        btn_performance2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btn_performance2.setText("Lap. Suplier");
+
+        javax.swing.GroupLayout pn_btnPerformance2Layout = new javax.swing.GroupLayout(pn_btnPerformance2);
+        pn_btnPerformance2.setLayout(pn_btnPerformance2Layout);
+        pn_btnPerformance2Layout.setHorizontalGroup(
+            pn_btnPerformance2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_btnPerformance2Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(jLabel15)
+                .addGap(18, 18, 18)
+                .addComponent(btn_performance2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(pn_btnPerformance2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pn_btnPerformance2Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(pn_line10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(211, Short.MAX_VALUE)))
+        );
+        pn_btnPerformance2Layout.setVerticalGroup(
+            pn_btnPerformance2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_btnPerformance2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pn_btnPerformance2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                    .addComponent(btn_performance2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+            .addGroup(pn_btnPerformance2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pn_btnPerformance2Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(pn_line10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+
+        pn_btnPerformance3.setBackground(new java.awt.Color(255, 255, 255));
+
+        pn_line11.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout pn_line11Layout = new javax.swing.GroupLayout(pn_line11);
+        pn_line11.setLayout(pn_line11Layout);
+        pn_line11Layout.setHorizontalGroup(
+            pn_line11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 5, Short.MAX_VALUE)
+        );
+        pn_line11Layout.setVerticalGroup(
+            pn_line11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 35, Short.MAX_VALUE)
+        );
+
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-report-30.png"))); // NOI18N
+
+        btn_performance3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btn_performance3.setText("Lap. Barang");
+
+        javax.swing.GroupLayout pn_btnPerformance3Layout = new javax.swing.GroupLayout(pn_btnPerformance3);
+        pn_btnPerformance3.setLayout(pn_btnPerformance3Layout);
+        pn_btnPerformance3Layout.setHorizontalGroup(
+            pn_btnPerformance3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_btnPerformance3Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(jLabel16)
+                .addGap(18, 18, 18)
+                .addComponent(btn_performance3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(pn_btnPerformance3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pn_btnPerformance3Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(pn_line11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(211, Short.MAX_VALUE)))
+        );
+        pn_btnPerformance3Layout.setVerticalGroup(
+            pn_btnPerformance3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_btnPerformance3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pn_btnPerformance3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                    .addComponent(btn_performance3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+            .addGroup(pn_btnPerformance3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pn_btnPerformance3Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(pn_line11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+
+        pn_btnPerformance4.setBackground(new java.awt.Color(255, 255, 255));
+
+        pn_line12.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout pn_line12Layout = new javax.swing.GroupLayout(pn_line12);
+        pn_line12.setLayout(pn_line12Layout);
+        pn_line12Layout.setHorizontalGroup(
+            pn_line12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 5, Short.MAX_VALUE)
+        );
+        pn_line12Layout.setVerticalGroup(
+            pn_line12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 35, Short.MAX_VALUE)
+        );
+
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-report-30.png"))); // NOI18N
+
+        btn_performance4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btn_performance4.setText("Lap. Penjualan");
+
+        javax.swing.GroupLayout pn_btnPerformance4Layout = new javax.swing.GroupLayout(pn_btnPerformance4);
+        pn_btnPerformance4.setLayout(pn_btnPerformance4Layout);
+        pn_btnPerformance4Layout.setHorizontalGroup(
+            pn_btnPerformance4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_btnPerformance4Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(jLabel17)
+                .addGap(18, 18, 18)
+                .addComponent(btn_performance4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(pn_btnPerformance4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pn_btnPerformance4Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(pn_line12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(211, Short.MAX_VALUE)))
+        );
+        pn_btnPerformance4Layout.setVerticalGroup(
+            pn_btnPerformance4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_btnPerformance4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pn_btnPerformance4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                    .addComponent(btn_performance4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+            .addGroup(pn_btnPerformance4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pn_btnPerformance4Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(pn_line12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+
+        pn_btnPerformance5.setBackground(new java.awt.Color(255, 255, 255));
+
+        pn_line13.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout pn_line13Layout = new javax.swing.GroupLayout(pn_line13);
+        pn_line13.setLayout(pn_line13Layout);
+        pn_line13Layout.setHorizontalGroup(
+            pn_line13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 5, Short.MAX_VALUE)
+        );
+        pn_line13Layout.setVerticalGroup(
+            pn_line13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 35, Short.MAX_VALUE)
+        );
+
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-report-30.png"))); // NOI18N
+
+        btn_performance5.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btn_performance5.setText("Lap. Pembelian");
+
+        javax.swing.GroupLayout pn_btnPerformance5Layout = new javax.swing.GroupLayout(pn_btnPerformance5);
+        pn_btnPerformance5.setLayout(pn_btnPerformance5Layout);
+        pn_btnPerformance5Layout.setHorizontalGroup(
+            pn_btnPerformance5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_btnPerformance5Layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(jLabel18)
+                .addGap(18, 18, 18)
+                .addComponent(btn_performance5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(pn_btnPerformance5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pn_btnPerformance5Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(pn_line13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(211, Short.MAX_VALUE)))
+        );
+        pn_btnPerformance5Layout.setVerticalGroup(
+            pn_btnPerformance5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_btnPerformance5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pn_btnPerformance5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                    .addComponent(btn_performance5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+            .addGroup(pn_btnPerformance5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pn_btnPerformance5Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(pn_line13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+
         javax.swing.GroupLayout pn_kiriLayout = new javax.swing.GroupLayout(pn_kiri);
         pn_kiri.setLayout(pn_kiriLayout);
         pn_kiriLayout.setHorizontalGroup(
@@ -459,6 +734,11 @@ public class MenuUtama extends javax.swing.JFrame {
             .addGroup(pn_kiriLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(pn_kiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pn_btnPerformance5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pn_btnPerformance4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pn_btnPerformance3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pn_btnPerformance2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pn_btnPerformance1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pn_btnPerformance, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pn_btnPelanggan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pn_btnSupplier, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -506,6 +786,16 @@ public class MenuUtama extends javax.swing.JFrame {
                 .addComponent(jLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pn_btnPerformance, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pn_btnPerformance1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pn_btnPerformance2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pn_btnPerformance3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pn_btnPerformance4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pn_btnPerformance5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -572,7 +862,7 @@ public class MenuUtama extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pn_utama, javax.swing.GroupLayout.DEFAULT_SIZE, 535, Short.MAX_VALUE)
+                .addComponent(pn_utama, javax.swing.GroupLayout.DEFAULT_SIZE, 749, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -644,11 +934,21 @@ public class MenuUtama extends javax.swing.JFrame {
     private javax.swing.JLabel btn_pembelian;
     private javax.swing.JLabel btn_penjualan;
     private javax.swing.JLabel btn_performance;
+    private javax.swing.JLabel btn_performance1;
+    private javax.swing.JLabel btn_performance2;
+    private javax.swing.JLabel btn_performance3;
+    private javax.swing.JLabel btn_performance4;
+    private javax.swing.JLabel btn_performance5;
     private javax.swing.JLabel btn_supplier;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -665,17 +965,27 @@ public class MenuUtama extends javax.swing.JFrame {
     private javax.swing.JPanel pn_btnPembelian;
     private javax.swing.JPanel pn_btnPenjualan;
     private javax.swing.JPanel pn_btnPerformance;
+    private javax.swing.JPanel pn_btnPerformance1;
+    private javax.swing.JPanel pn_btnPerformance2;
+    private javax.swing.JPanel pn_btnPerformance3;
+    private javax.swing.JPanel pn_btnPerformance4;
+    private javax.swing.JPanel pn_btnPerformance5;
     private javax.swing.JPanel pn_btnSupplier;
     private javax.swing.JPanel pn_dasar;
     private javax.swing.JPanel pn_kanan;
     private javax.swing.JPanel pn_kiri;
     private javax.swing.JPanel pn_line;
     private javax.swing.JPanel pn_line1;
+    private javax.swing.JPanel pn_line10;
+    private javax.swing.JPanel pn_line11;
+    private javax.swing.JPanel pn_line12;
+    private javax.swing.JPanel pn_line13;
     private javax.swing.JPanel pn_line2;
     private javax.swing.JPanel pn_line3;
     private javax.swing.JPanel pn_line6;
     private javax.swing.JPanel pn_line7;
     private javax.swing.JPanel pn_line8;
+    private javax.swing.JPanel pn_line9;
     private javax.swing.JPanel pn_utama;
     // End of variables declaration//GEN-END:variables
 
@@ -854,5 +1164,135 @@ public class MenuUtama extends javax.swing.JFrame {
                 pn_line8.setBackground(new Color(255 ,255, 255));
             }
         });
+        
+        btn_performance1.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked (MouseEvent e) {
+                btn_performance1.setBackground(new Color(240, 240, 240));
+                pn_line9.setBackground(new Color(0, 102, 153));
+                
+                pn_utama.removeAll();
+                pn_utama.add(new Performance());
+                pn_utama.repaint();
+                pn_utama.revalidate();
+            }
+            
+            @Override
+            public void mouseEntered (MouseEvent e) {
+                btn_performance1.setBackground(new Color(250, 250, 250));
+                pn_line9.setBackground(new Color(0, 102, 153));
+            }
+            
+            @Override
+            public void mouseExited (MouseEvent e) {
+                btn_performance1.setBackground(new Color(255, 255, 255));
+                pn_line9.setBackground(new Color(255 ,255, 255));
+            }
+        });
+        
+        
+        btn_performance2.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked (MouseEvent e) {
+                btn_performance2.setBackground(new Color(240, 240, 240));
+                pn_line10.setBackground(new Color(0, 102, 153));
+                
+                pn_utama.removeAll();
+                pn_utama.add(new Performance());
+                pn_utama.repaint();
+                pn_utama.revalidate();
+            }
+            
+            @Override
+            public void mouseEntered (MouseEvent e) {
+                btn_performance2.setBackground(new Color(250, 250, 250));
+                pn_line10.setBackground(new Color(0, 102, 153));
+            }
+            
+            @Override
+            public void mouseExited (MouseEvent e) {
+                btn_performance2.setBackground(new Color(255, 255, 255));
+                pn_line10.setBackground(new Color(255 ,255, 255));
+            }
+        });
+        
+        
+        btn_performance3.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked (MouseEvent e) {
+                btn_performance3.setBackground(new Color(240, 240, 240));
+                pn_line11.setBackground(new Color(0, 102, 153));
+                
+                pn_utama.removeAll();
+                pn_utama.add(new Performance());
+                pn_utama.repaint();
+                pn_utama.revalidate();
+            }
+            
+            @Override
+            public void mouseEntered (MouseEvent e) {
+                btn_performance3.setBackground(new Color(250, 250, 250));
+                pn_line11.setBackground(new Color(0, 102, 153));
+            }
+            
+            @Override
+            public void mouseExited (MouseEvent e) {
+                btn_performance3.setBackground(new Color(255, 255, 255));
+                pn_line11.setBackground(new Color(255 ,255, 255));
+            }
+        });
+        
+        
+        btn_performance4.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked (MouseEvent e) {
+                btn_performance4.setBackground(new Color(240, 240, 240));
+                pn_line12.setBackground(new Color(0, 102, 153));
+                
+                pn_utama.removeAll();
+                pn_utama.add(new Performance());
+                pn_utama.repaint();
+                pn_utama.revalidate();
+            }
+            
+            @Override
+            public void mouseEntered (MouseEvent e) {
+                btn_performance4.setBackground(new Color(250, 250, 250));
+                pn_line12.setBackground(new Color(0, 102, 153));
+            }
+            
+            @Override
+            public void mouseExited (MouseEvent e) {
+                btn_performance4.setBackground(new Color(255, 255, 255));
+                pn_line12.setBackground(new Color(255 ,255, 255));
+            }
+        });
+        
+        
+        btn_performance5.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked (MouseEvent e) {
+                btn_performance5.setBackground(new Color(240, 240, 240));
+                pn_line13.setBackground(new Color(0, 102, 153));
+                
+                pn_utama.removeAll();
+                pn_utama.add(new Performance());
+                pn_utama.repaint();
+                pn_utama.revalidate();
+            }
+            
+            @Override
+            public void mouseEntered (MouseEvent e) {
+                btn_performance5.setBackground(new Color(250, 250, 250));
+                pn_line13.setBackground(new Color(0, 102, 153));
+            }
+            
+            @Override
+            public void mouseExited (MouseEvent e) {
+                btn_performance5.setBackground(new Color(255, 255, 255));
+                pn_line13.setBackground(new Color(255 ,255, 255));
+            }
+        });
+        
     }
 }
