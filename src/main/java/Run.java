@@ -49,9 +49,9 @@ public class Run {
             public void run() {
                 String userID = "ID";
                 String namaUser = "Nama";
-                new MenuUtama(userID, namaUser).setVisible(true);
+//                new MenuUtama(userID, namaUser).setVisible(true);
 
-//                  new FormLogin().show();
+                  new FormLogin().show();
             }
         });
     }
