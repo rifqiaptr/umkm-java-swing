@@ -47,11 +47,11 @@ public class Run {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-//                String userID = "ID";
-//                String namaUser = "Nama";
-//                new MenuUtama(userID, namaUser).setVisible(true);
+                String userID = "ID";
+                String namaUser = "Nama";
+                new MenuUtama(userID, namaUser).setVisible(true);
 
-                  new FormLogin().show();
+//                  new FormLogin().show();
             }
         });
     }
