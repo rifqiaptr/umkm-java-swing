@@ -105,6 +105,8 @@ public class Penjualan extends javax.swing.JPanel {
         btnCloseDetail2 = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
         tblDataDetail2 = new javax.swing.JTable();
+        btnEdit = new javax.swing.JButton();
+        btnRemove = new javax.swing.JButton();
         panelAdd = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -119,9 +121,10 @@ public class Penjualan extends javax.swing.JPanel {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        btnCreateTransaction = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
+        btnEditTransaction = new javax.swing.JButton();
 
         jLabel4.setText("Tambah Barang");
 
@@ -249,7 +252,7 @@ public class Penjualan extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Sell_30px.png"))); // NOI18N
 
-        btnAdd.setBackground(new java.awt.Color(52, 152, 219));
+        btnAdd.setBackground(new java.awt.Color(0, 204, 51));
         btnAdd.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         btnAdd.setForeground(new java.awt.Color(255, 255, 255));
         btnAdd.setText("TAMBAH");
@@ -340,6 +343,26 @@ public class Penjualan extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
+        btnEdit.setBackground(new java.awt.Color(52, 152, 219));
+        btnEdit.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        btnEdit.setForeground(new java.awt.Color(255, 255, 255));
+        btnEdit.setText("EDIT");
+        btnEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditActionPerformed(evt);
+            }
+        });
+
+        btnRemove.setBackground(new java.awt.Color(255, 51, 51));
+        btnRemove.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        btnRemove.setForeground(new java.awt.Color(255, 255, 255));
+        btnRemove.setText("Remove");
+        btnRemove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoveActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelViewLayout = new javax.swing.GroupLayout(panelView);
         panelView.setLayout(panelViewLayout);
         panelViewLayout.setHorizontalGroup(
@@ -351,11 +374,16 @@ public class Penjualan extends javax.swing.JPanel {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 966, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelViewLayout.createSequentialGroup()
                         .addGroup(panelViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnAdd, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelViewLayout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel1)))
+                                .addComponent(jLabel1))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelViewLayout.createSequentialGroup()
+                                .addComponent(btnAdd)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnEdit)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnRemove)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(30, 30, 30))
         );
@@ -367,7 +395,11 @@ public class Penjualan extends javax.swing.JPanel {
                     .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(btnAdd)
+                .addGroup(panelViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAdd)
+                    .addGroup(panelViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnEdit)
+                        .addComponent(btnRemove)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
                 .addGap(40, 40, 40)
@@ -440,10 +472,10 @@ public class Penjualan extends javax.swing.JPanel {
             }
         });
 
-        jButton5.setText("BELI");
-        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnCreateTransaction.setText("BELI");
+        btnCreateTransaction.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton5MouseClicked(evt);
+                btnCreateTransactionMouseClicked(evt);
             }
         });
 
@@ -452,6 +484,13 @@ public class Penjualan extends javax.swing.JPanel {
 
         jLabel16.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
         jLabel16.setText("NAMA PELANGGAN");
+
+        btnEditTransaction.setText("EDIT");
+        btnEditTransaction.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEditTransactionMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelAddLayout = new javax.swing.GroupLayout(panelAdd);
         panelAdd.setLayout(panelAddLayout);
@@ -493,7 +532,10 @@ public class Penjualan extends javax.swing.JPanel {
                                         .addComponent(jButton3)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jButton4))
-                                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(panelAddLayout.createSequentialGroup()
+                                        .addComponent(btnCreateTransaction, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnEditTransaction, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(30, 30, 30))))
         );
         panelAddLayout.setVerticalGroup(
@@ -522,10 +564,12 @@ public class Penjualan extends javax.swing.JPanel {
                     .addComponent(jButton2)
                     .addComponent(jButton3)
                     .addComponent(jButton4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnEditTransaction, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCreateTransaction, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -539,6 +583,10 @@ public class Penjualan extends javax.swing.JPanel {
         panelMain.add(panelAdd);
         panelMain.repaint();
         panelMain.revalidate();
+        
+        
+        btnCreateTransaction.setVisible(true);
+        btnEditTransaction.setVisible(false);
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
@@ -585,6 +633,9 @@ public class Penjualan extends javax.swing.JPanel {
             if(!dataFound){
                 model.addRow(new Object[]{ namaBarang, kodeBarang, hargaJual.toString(), jumlahBarang});
             }
+            
+            btnCreateTransaction.setVisible(true);
+            btnEditTransaction.setVisible(false);
 
         }catch(Exception e){
             JOptionPane.showConfirmDialog(this, e.getMessage());
@@ -732,7 +783,7 @@ public class Penjualan extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButton3MouseClicked
 
-    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+    private void btnCreateTransactionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCreateTransactionMouseClicked
         // get data
         String trxNo = txtNomor.getText();
         Date trxTgl = dateChooser.getDate();
@@ -832,7 +883,7 @@ public class Penjualan extends javax.swing.JPanel {
             // pop berhasil
             JOptionPane.showMessageDialog(this, "data tersimpan");
 
-    }//GEN-LAST:event_jButton5MouseClicked
+    }//GEN-LAST:event_btnCreateTransactionMouseClicked
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         showPanel();
@@ -849,6 +900,275 @@ public class Penjualan extends javax.swing.JPanel {
     private void btnCloseDetail2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCloseDetail2MouseClicked
         showPanel();
     }//GEN-LAST:event_btnCloseDetail2MouseClicked
+
+    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
+
+        // init component
+        btn_generate_transaction_no.setVisible(false);
+        btnEditTransaction.setVisible(true);
+        btnCreateTransaction.setVisible(false);
+
+        // get data from table transaksi
+        int row = tblData.getSelectedRow();
+
+        if(-1 == row){
+            JOptionPane.showMessageDialog(this, "Anda belum memilih row");
+            return;
+        }
+
+        String transactionId = tblData.getValueAt(row, 0).toString();
+
+        System.out.println("TransactionId : "+transactionId);
+
+        clearTransactionDetail();
+        setTransactionDetail(transactionId);
+
+        // pindah halaman
+        panelMain.removeAll();
+        panelMain.add(panelAdd);
+        panelMain.repaint();
+        panelMain.revalidate();
+        
+    }//GEN-LAST:event_btnEditActionPerformed
+
+    private void clearTransactionDetail(){
+        txtNomor.setText("");
+        dateChooser.cleanup();
+        pelangganNames.setSelectedIndex(-1);
+        txtTabel.removeAll();
+    }
+    
+    private void setTransactionDetail(String transactionId){
+        // get data transaction
+        String sql = """
+                     select
+                          p.id,
+                          p.nomor_transaksi,
+                          p.tanggal_transaksi,
+                          p.pelanggan_id,
+                          s.nama pelanggan_name
+                      from penjualan p
+                      inner join pelanggan s on p.pelanggan_id = s.id
+                      where p.id =
+                     """+transactionId;
+        
+        Connection con = Koneksi.getConnection();
+        
+        try {
+            PreparedStatement ps =  con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            
+            while(rs.next()){
+                String id =  rs.getString("id");
+                String noTransaction =  rs.getString("nomor_transaksi");
+                Date tanggalTransaction = rs.getDate("tanggal_transaksi");
+                String pelangganId = rs.getString("pelanggan_id");
+                String pelangganName = rs.getString("pelanggan_name");
+                
+                txtNomor.setText(noTransaction);
+                dateChooser.setDate(tanggalTransaction);
+                pelangganNames.setSelectedItem(pelangganName);
+                
+                // remove table barang
+                // delete all row in jtable
+                DefaultTableModel model = (DefaultTableModel) txtTabel.getModel();
+                model.setRowCount(0);
+                
+                // fill table barang
+                sql = """
+                      
+                      select
+                        b.nama barang_nama,
+                        b.kode barang_kode,
+                        b.harga_jual barang_harga,
+                        pb.barang_id,
+                        pb.jumlah_barang
+                      from penjualan_barang pb
+                      inner join barang b on pb.barang_id = b.id
+                      where pb.penjualan_id=
+                      
+                      """+transactionId;
+                
+                ps = con.prepareStatement(sql);
+                rs = ps.executeQuery();
+                
+                while(rs.next()){
+                    String barangNama = rs.getString("barang_nama");
+                    String barangKode = rs.getString("barang_kode");
+                    String barangHarga = rs.getString("barang_harga");
+                    String barangId = rs.getString("barang_id");
+                    String jumlahBarang = rs.getString("jumlah_barang");
+                    
+                    
+                    
+                    model.addRow(new Object[]{
+                        barangNama,
+                        barangKode,
+                        barangHarga,
+                        jumlahBarang
+                    });
+                }
+                
+                
+            }
+            
+        } catch(Exception e) {
+            
+        }
+        
+        
+        
+    }
+    
+    
+    private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
+        // get transaction of the row of table
+        int row = tblData.getSelectedRow();
+
+        if(-1 == row){
+            JOptionPane.showMessageDialog(this, "Anda belum memilih row");
+            return;
+        }
+
+        String transactionId = tblData.getValueAt(row, 0).toString();
+
+        // delete barang of the transaction
+        Connection con = Koneksi.getConnection();
+        try{
+            con.setAutoCommit(false);
+
+            String sql = """
+            delete from penjualan_barang
+            where penjualan_id =
+            """+transactionId;
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.executeUpdate();
+
+            // delete the transaction
+            sql = """
+
+            delete from penjualan
+            where id=?
+
+            """;
+            ps = con.prepareStatement(sql);
+            ps.setString(1, transactionId);
+            ps.executeUpdate();
+
+            // reload table of list transaction
+            getData();
+
+            con.commit();
+
+        } catch(Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, e.getMessage());
+
+            try {
+                con.rollback();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+                JOptionPane.showMessageDialog(this, ex.getMessage());
+            }
+        }
+
+    }//GEN-LAST:event_btnRemoveActionPerformed
+
+    private void btnEditTransactionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEditTransactionMouseClicked
+        
+        String transactionNo = txtNomor.getText();
+        Date transactionDate = dateChooser.getDate();
+        String pelangganKode = (String) pelangganNames.getSelectedItem();
+
+        pelangganKode = pelangganKode
+        .replaceAll(".+\\(", "")
+        .replaceAll("\\)", "");
+        
+        
+        // update the transaction 
+        String sql = """
+                     
+                     update penjualan p
+                     set p.tanggal_transaksi =?,
+                         p.pelanggan_id = ( select s.id from pelanggan s where s.kode =?)
+                     where p.nomor_transaksi =?;
+                     
+                     """;
+        
+        Connection con = Koneksi.getConnection();
+        
+        try{
+           
+            
+            
+            con.setAutoCommit(false);
+            
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setDate(1, new java.sql.Date(transactionDate.getTime()) );
+            ps.setString(2, pelangganKode);
+            ps.setString(3, transactionNo);
+            ps.executeUpdate();
+            
+            
+            // remove barang of the transaction
+            sql = """
+                  delete from penjualan_barang
+                  where penjualan_id = (select p.id from penjualan p where p.nomor_transaksi=?);
+                  """;
+            ps = con.prepareStatement(sql);
+            ps.setString(1, transactionNo);
+            ps.executeUpdate();
+
+            
+            // create new barangs of the new transation
+            DefaultTableModel model = (DefaultTableModel) txtTabel.getModel();
+            for(int i = 0 ; i < model.getRowCount(); i++){
+                String newKodeBarang = model.getValueAt(i, 1).toString();
+                String newJumlahBarang = model.getValueAt(i, 3).toString();
+                
+                
+                sql = """
+                  insert into penjualan_barang(
+                      penjualan_id,
+                      barang_id,
+                      jumlah_barang
+                  )
+                  value (
+                      (select p.id from penjualan p where p.nomor_transaksi=?),
+                      (select b.id from barang b where b.kode=? ),
+                      ?
+                    );
+                  """;
+                ps = con.prepareStatement(sql);
+                ps.setString(1, transactionNo);
+                ps.setString(2, newKodeBarang);
+                ps.setString(3, newJumlahBarang);
+                ps.executeUpdate();
+                
+                
+            }
+            
+            // sukses edit
+            JOptionPane.showMessageDialog(this, "berhasil merubah data transaksi");
+            
+            con.commit();
+            
+            
+        } catch (Exception e ){
+            try {
+                con.rollback();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+                JOptionPane.showMessageDialog(this, ex.getMessage());
+            }
+            
+            e.printStackTrace();
+            
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+        
+        
+    }//GEN-LAST:event_btnEditTransactionMouseClicked
 
     private static String generateRandomString() {
         String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -871,6 +1191,10 @@ public class Penjualan extends javax.swing.JPanel {
     private javax.swing.JDialog addBarang;
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnCloseDetail2;
+    private javax.swing.JButton btnCreateTransaction;
+    private javax.swing.JButton btnEdit;
+    private javax.swing.JButton btnEditTransaction;
+    private javax.swing.JButton btnRemove;
     private javax.swing.JButton btn_generate_transaction_no;
     private com.toedter.calendar.JDateChooser dateChooser;
     private javax.swing.JDialog editBarang;
@@ -878,7 +1202,6 @@ public class Penjualan extends javax.swing.JPanel {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
