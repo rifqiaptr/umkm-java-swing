@@ -10,13 +10,20 @@ import java.awt.event.MouseEvent;
 
 public class MenuUtama extends javax.swing.JFrame {
     private String userID;
+    private String roleUser;
     
-    public MenuUtama(String userID, String namaUser) {
+    public MenuUtama(String userID, String namaUser, String roleUser) {
+        
+        this.roleUser = roleUser;
+        
         initComponents();
         lbProfileName.setText(namaUser);
         actionButton();
+        
+       
+        showMenuForDiffeerentRoles();
     }
-
+    
     MenuUtama(String username) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
@@ -1032,6 +1039,42 @@ public class MenuUtama extends javax.swing.JFrame {
     private javax.swing.JPanel pn_utama;
     // End of variables declaration//GEN-END:variables
 
+    private void showMenuForDiffeerentRoles(){
+      
+        
+        System.out.println("user with role "+roleUser+" already login");
+      
+        
+        
+        if(roleUser.equalsIgnoreCase("OWNER")) {
+            jLabel3.setVisible(false);
+            pn_btnPelanggan.setVisible(false);
+            pn_btnSupplier.setVisible(false);
+            pn_btnBarang.setVisible(false);
+            pn_btnKategori.setVisible(false);
+            jLabel5.setVisible(false);
+            pn_btnPembelian.setVisible(false);
+            pn_btnPenjualan.setVisible(false);
+        }
+        else if(roleUser.equalsIgnoreCase("ADMIN")) {
+            jLabel11.setVisible(false);
+            pn_btnPerformance.setVisible(false);
+            jLabel13.setVisible(false);
+            pn_btnPerformance1.setVisible(false);
+            pn_btnPerformance2.setVisible(false);
+            pn_btnPerformance3.setVisible(false);
+            pn_btnPerformance4.setVisible(false);
+            pn_btnPerformance5.setVisible(false);
+        }
+        else {
+            System.out.println("role user doesnt exists!");
+          
+            System.exit(-1);
+        }
+        
+        
+    }
+    
     private void actionButton() {
         btn_pelanggan.addMouseListener(new MouseAdapter() {
             @Override

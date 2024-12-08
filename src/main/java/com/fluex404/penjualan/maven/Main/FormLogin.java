@@ -253,6 +253,7 @@ public class FormLogin extends javax.swing.JFrame {
                 if (rs.next()) {
                     result.put("id", rs.getString("id"));
                     result.put("nama_user", rs.getString("nama_user"));
+                    result.put("role", rs.getString("role"));
                     return result;
                 }
             }
@@ -274,8 +275,9 @@ public class FormLogin extends javax.swing.JFrame {
             if (loginResult != null && !loginResult.isEmpty()) {
                 String userID = loginResult.get("id");
                 String namaUser = loginResult.get("nama_user");
+                String roleUser = loginResult.get("role");
 
-                MenuUtama mn = new MenuUtama(userID, namaUser);  // Mengirim nilai user_id ke MenuUtama
+                MenuUtama mn = new MenuUtama(userID, namaUser, roleUser);  // Mengirim nilai user_id ke MenuUtama
                 mn.setVisible(true);
                 mn.revalidate();
 
