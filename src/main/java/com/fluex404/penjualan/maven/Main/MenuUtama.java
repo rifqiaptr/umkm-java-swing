@@ -931,8 +931,10 @@ public class MenuUtama extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void btnLogoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseClicked
+        setVisible(false);
         dispose();
-        System.exit(0);
+        
+        new FormLogin().setVisible(true);
     }//GEN-LAST:event_btnLogoutMouseClicked
 
     /**
