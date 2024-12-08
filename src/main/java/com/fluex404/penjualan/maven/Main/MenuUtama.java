@@ -1293,7 +1293,7 @@ public class MenuUtama extends javax.swing.JFrame {
                 pn_line12.setBackground(new Color(0, 102, 153));
                 
                 pn_utama.removeAll();
-                pn_utama.add(new Performance());
+                pn_utama.add(new LapPenjualan());
                 pn_utama.repaint();
                 pn_utama.revalidate();
             }
@@ -1319,7 +1319,7 @@ public class MenuUtama extends javax.swing.JFrame {
                 pn_line13.setBackground(new Color(0, 102, 153));
                 
                 pn_utama.removeAll();
-                pn_utama.add(new Performance());
+                pn_utama.add(new LapPembelian());
                 pn_utama.repaint();
                 pn_utama.revalidate();
             }

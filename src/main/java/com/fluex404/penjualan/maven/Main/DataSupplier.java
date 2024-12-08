@@ -52,7 +52,6 @@ public class DataSupplier extends javax.swing.JPanel {
         txtNoTelp = new javax.swing.JTextField();
         txtEmail = new javax.swing.JTextField();
         btnDelete = new javax.swing.JButton();
-        btnExport = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblData = new javax.swing.JTable();
 
@@ -109,16 +108,6 @@ public class DataSupplier extends javax.swing.JPanel {
             }
         });
 
-        btnExport.setBackground(new java.awt.Color(102, 102, 102));
-        btnExport.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        btnExport.setForeground(new java.awt.Color(255, 255, 255));
-        btnExport.setText("EXPORT");
-        btnExport.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnExportMouseClicked(evt);
-            }
-        });
-
         tblData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -163,10 +152,8 @@ public class DataSupplier extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnEdit)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnDelete)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnExport)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addComponent(btnDelete)))
+                        .addGap(0, 721, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelAddLayout.setVerticalGroup(
@@ -190,10 +177,9 @@ public class DataSupplier extends javax.swing.JPanel {
                 .addGroup(panelAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnExport, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 393, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -326,36 +312,10 @@ public class DataSupplier extends javax.swing.JPanel {
         nonAktifButton();
     }//GEN-LAST:event_btnDeleteMouseClicked
 
-    private void btnExportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExportMouseClicked
-        try {
-            // Parameters for report (if any)
-            HashMap<String, Object> parameters = new HashMap<>();
-            parameters.put("ReportTitle", "Data Supplier");
-            
-            //load report location
-            InputStream in = this.getClass().getClassLoader().getResourceAsStream("./report/supplier_report.jrxml");
-            
-            //compile report
-            JasperReport jasperReport = (JasperReport) JasperCompileManager.compileReport(in);
-            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, conn);
-            
-            //view report to UI
-            JasperViewer.viewReport(jasperPrint, false);
-            
-
-            JOptionPane.showMessageDialog(this, "Laporan berhasil diekspor ke PDF");
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
-        }
-    }//GEN-LAST:event_btnExportMouseClicked
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnEdit;
-    private javax.swing.JButton btnExport;
     private javax.swing.JButton btnSave;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel6;

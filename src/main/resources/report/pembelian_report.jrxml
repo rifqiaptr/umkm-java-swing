@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.2.final using JasperReports Library version 6.21.2-8434a0bd7c3bbc37cbf916f2968d35e4b165821a  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="penjualan_report" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f07f2485-e0b9-4188-9805-89c3a909d07a">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="UMKMDB"/>
+	<queryString language="SQL">
+		<![CDATA[select
+                                 p.nomor_transaksi,
+                                 p.tanggal_transaksi,
+                                 s.nama nama_suplier,
+                                 s.email email_suplier,
+                                 s.nomor_telp nomor_telp_suplier,
+                                 s.alamat alamat_suplier,
+                                 b.kode kode_barang,
+                                 b.nama nama_barang,
+                                 b.harga_jual harga_jual_barang,
+                                 b.kategori kategori_barang,
+                                 b.satuan_barang satuan_barang_barang,
+                                 pb.jumlah_barang
+                             from pembelian p
+                             inner join suplier s on p.suplier_id = s.id
+                             left join pembelian_barang pb on p.id = pb.pembelian_id
+                             left join barang b on b.id = pb.barang_id]]>
+	</queryString>
+	<field name="nomor_transaksi" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nomor_transaksi"/>
+		<property name="com.jaspersoft.studio.field.label" value="nomor_transaksi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pembelian"/>
+	</field>
+	<field name="tanggal_transaksi" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.name" value="tanggal_transaksi"/>
+		<property name="com.jaspersoft.studio.field.label" value="tanggal_transaksi"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pembelian"/>
+	</field>
+	<field name="nama_suplier" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nama"/>
+		<property name="com.jaspersoft.studio.field.label" value="nama_suplier"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="suplier"/>
+	</field>
+	<field name="email_suplier" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="email"/>
+		<property name="com.jaspersoft.studio.field.label" value="email_suplier"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="suplier"/>
+	</field>
+	<field name="nomor_telp_suplier" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nomor_telp"/>
+		<property name="com.jaspersoft.studio.field.label" value="nomor_telp_suplier"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="suplier"/>
+	</field>
+	<field name="alamat_suplier" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="alamat"/>
+		<property name="com.jaspersoft.studio.field.label" value="alamat_suplier"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="suplier"/>
+	</field>
+	<field name="kode_barang" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="kode"/>
+		<property name="com.jaspersoft.studio.field.label" value="kode_barang"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="barang"/>
+	</field>
+	<field name="nama_barang" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nama"/>
+		<property name="com.jaspersoft.studio.field.label" value="nama_barang"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="barang"/>
+	</field>
+	<field name="harga_jual_barang" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="harga_jual"/>
+		<property name="com.jaspersoft.studio.field.label" value="harga_jual_barang"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="barang"/>
+	</field>
+	<field name="kategori_barang" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="kategori"/>
+		<property name="com.jaspersoft.studio.field.label" value="kategori_barang"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="barang"/>
+	</field>
+	<field name="satuan_barang_barang" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="satuan_barang"/>
+		<property name="com.jaspersoft.studio.field.label" value="satuan_barang_barang"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="barang"/>
+	</field>
+	<field name="jumlah_barang" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="jumlah_barang"/>
+		<property name="com.jaspersoft.studio.field.label" value="jumlah_barang"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pembelian_barang"/>
+	</field>
+	<columnHeader>
+		<band height="34" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="76" height="30" uuid="813ac9f3-3372-4406-bae3-379df12f6810">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7ca03763-9987-4a9e-a24b-6faea9a69e63"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMOR TRX]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="76" y="0" width="66" height="30" uuid="d46e8bfb-2154-48b0-9b60-886baccd63cb">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="68f0efbe-c6d1-48fd-93f1-fa4faa276205"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TRANGGAL TRX]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="142" y="0" width="66" height="30" uuid="57dc5c2a-2bfb-47ac-85ed-abe657d2be8a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8d77e1f8-cd89-4804-9676-c07159625a78"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SUPLIER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="208" y="0" width="66" height="30" uuid="ce4c3975-67fe-44bd-9091-097b342626ea">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a1702c24-2f32-4f89-97fb-d766685b9aca"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[EMAIL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="274" y="0" width="66" height="30" uuid="945460ef-0614-4409-9c67-e97d1bd13ced">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="79eda980-5fc6-40bf-aec6-7033f8cd7996"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TELP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="340" y="0" width="66" height="30" uuid="585f7527-f97f-4499-86dd-e1dc4e857bc1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f90595d1-ae31-4241-8892-8091d06e8358"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ALAMAT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="406" y="0" width="66" height="30" uuid="c31d35cc-a2a2-4b73-9a76-5602c1251b1e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b052f262-4d96-455a-a7a1-ceaf9b9f2546"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[KODE BARANG]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="472" y="0" width="66" height="30" uuid="c571a575-8026-4ec1-b4e7-ec4380e53f6a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8a3f8617-28e6-4c85-8a89-47ac7b9b5a6d"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NAMA BARANG]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="538" y="0" width="66" height="30" uuid="9c9778ef-c5ed-4f4f-9200-46577e083c73">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c5ab3f0d-9bf8-49c9-be2d-b3a973c36fea"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[HARGA BARANG]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="604" y="0" width="66" height="30" uuid="42f55dc3-cbc8-4792-a114-f89ab9d296d2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2c0c62f9-f3f8-42ff-9fc4-d2647071fc62"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[KATEGORI BARANG]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="670" y="0" width="66" height="30" uuid="b66efb6f-55d3-494f-b039-3fad64fb7b0f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9fb5252c-aa54-4b96-bc51-aa76406cc4c4"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SATUAN BARANG]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="736" y="0" width="66" height="30" uuid="764e7dda-2f85-4ced-97d4-fb47eff54d89">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4ec72bed-e9ab-42db-8d63-0d561f797140"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[JUMLAH BARANG]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="33" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="76" height="30" uuid="ce86f6c0-683e-4f7b-a198-6438f6ce4f6d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="7ca03763-9987-4a9e-a24b-6faea9a69e63"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomor_transaksi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="76" y="0" width="66" height="30" uuid="37357e40-a357-4dde-af06-a2669fcce5a7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="68f0efbe-c6d1-48fd-93f1-fa4faa276205"/>
+				</reportElement>
+				<textElement verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tanggal_transaksi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="142" y="0" width="66" height="30" uuid="6b61e46f-9870-4c99-90e4-5824f4fa4816">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8d77e1f8-cd89-4804-9676-c07159625a78"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nama_suplier}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="208" y="0" width="66" height="30" uuid="f54ef762-4c90-4eae-b3dc-f87189a03329">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a1702c24-2f32-4f89-97fb-d766685b9aca"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{email_suplier}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="274" y="0" width="66" height="30" uuid="e13bd2d0-5d30-4af2-840a-fb6a8dd7b446">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="79eda980-5fc6-40bf-aec6-7033f8cd7996"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomor_telp_suplier}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="340" y="0" width="66" height="30" uuid="98fede4e-23e9-4c14-8b06-25e5f7398649">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f90595d1-ae31-4241-8892-8091d06e8358"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{alamat_suplier}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="406" y="0" width="66" height="30" uuid="87aef283-084e-4358-8f9d-cab7212fb0cb">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b052f262-4d96-455a-a7a1-ceaf9b9f2546"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kode_barang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="472" y="0" width="66" height="30" uuid="f43c14c5-d956-485d-9668-cb0a716cca01">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="8a3f8617-28e6-4c85-8a89-47ac7b9b5a6d"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nama_barang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="538" y="0" width="66" height="30" uuid="b92006bb-60be-4aab-8642-62917f0852e2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c5ab3f0d-9bf8-49c9-be2d-b3a973c36fea"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{harga_jual_barang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="604" y="0" width="66" height="30" uuid="de0679ba-4591-4bef-808c-502a72b8f777">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2c0c62f9-f3f8-42ff-9fc4-d2647071fc62"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kategori_barang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="670" y="0" width="66" height="30" uuid="fcb8467e-7325-4b62-a712-5a9bf0273cd5">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9fb5252c-aa54-4b96-bc51-aa76406cc4c4"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{satuan_barang_barang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="736" y="0" width="66" height="30" uuid="7de5f9a0-4c33-4d24-bed4-2250cb91a47a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4ec72bed-e9ab-42db-8d63-0d561f797140"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{jumlah_barang}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
