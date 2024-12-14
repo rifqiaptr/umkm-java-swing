@@ -1059,8 +1059,6 @@ public class MenuUtama extends javax.swing.JFrame {
             pn_btnPenjualan.setVisible(false);
         }
         else if(roleUser.equalsIgnoreCase("ADMIN")) {
-            jLabel11.setVisible(false);
-            pn_btnPerformance.setVisible(false);
             jLabel13.setVisible(false);
             pn_btnPerformance1.setVisible(false);
             pn_btnPerformance2.setVisible(false);
