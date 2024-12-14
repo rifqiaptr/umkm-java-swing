@@ -868,7 +868,7 @@ public class MenuUtama extends javax.swing.JFrame {
         });
 
         lbProfileName.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lbProfileName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbProfileName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lbProfileName.setText("Profile Name");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -876,8 +876,8 @@ public class MenuUtama extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(910, Short.MAX_VALUE)
-                .addComponent(lbProfileName, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(677, Short.MAX_VALUE)
+                .addComponent(lbProfileName, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnLogout)
                 .addContainerGap())
