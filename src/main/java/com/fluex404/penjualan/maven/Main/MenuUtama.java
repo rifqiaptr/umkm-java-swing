@@ -568,7 +568,7 @@ public class MenuUtama extends javax.swing.JFrame {
         jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-report-30.png"))); // NOI18N
 
         btn_performance2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btn_performance2.setText("Lap. Suplier");
+        btn_performance2.setText("Lap. Supplier");
 
         javax.swing.GroupLayout pn_btnPerformance2Layout = new javax.swing.GroupLayout(pn_btnPerformance2);
         pn_btnPerformance2.setLayout(pn_btnPerformance2Layout);
@@ -826,7 +826,7 @@ public class MenuUtama extends javax.swing.JFrame {
                 .addComponent(pn_btnPerformance4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pn_btnPerformance5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(11, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jScrollPane1.setViewportView(contentOfSideBar);
