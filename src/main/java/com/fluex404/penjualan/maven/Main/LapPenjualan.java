@@ -51,7 +51,7 @@ public class LapPenjualan extends javax.swing.JPanel {
         panelAdd.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel6.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jLabel6.setText("Lap Penjualan");
+        jLabel6.setText("Lap. Penjualan");
 
         jLabel10.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/icons8-report-30.png"))); // NOI18N
@@ -110,7 +110,7 @@ public class LapPenjualan extends javax.swing.JPanel {
                         .addComponent(jLabel10)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel6)
-                        .addGap(0, 798, Short.MAX_VALUE)))
+                        .addGap(0, 801, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         panelAddLayout.setVerticalGroup(
